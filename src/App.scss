@@ -207,3 +207,54 @@
     max-height: 100%;
   }
 }
+
+.section-banner {
+  padding: 32px 20px 14px 120px;
+  border-radius: 12px;
+  background: url(https://odindesignthemes.com/vikinger/img/banner/banner-bg.png)
+    no-repeat 50%;
+  position: relative;
+}
+.section-banner .section-banner-icon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.statusBadge--3R5oH {
+  grid-area: top-left-1/top-left-1/top-left-2/top-center;
+  justify-self: left;
+  align-self: start;
+  margin-top: 7px;
+  margin-left: 7px;
+  z-index: 40;
+}
+.badges_smallBadge__sJpdq {
+  font-size: 11px;
+  letter-spacing: 0.42px;
+}
+.badges_liveBadge__3Xs9Q {
+  background-color: #ed0c02;
+}
+.badges_badgeCommon__3UacB {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.3em;
+  padding: 0.31em 0.8em;
+  color: #fff;
+  cursor: default;
+  line-height: normal;
+  font-weight: 700;
+}
+.badges_smallViewerLiveBadge__AGSaa {
+  margin-left: 4.3px;
+  font-size: 11px;
+  letter-spacing: 0.42px;
+}
+.badges_viewerCountText__248Qs {
+  margin-left: 5px;
+}
+.badges_grayBadge__-5337 {
+  background: #484848;
+}

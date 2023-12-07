@@ -10,7 +10,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 export default function Slider() {
   const images = [
-    "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2023/12/3/f19e80d4-5cdd-485e-b697-325ebf0511d51701626540177-Curtain-Raiser_Shop-Now.jpg",
+    "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2023/12/3/4335d7ed-73d3-4552-89a2-fc705bfe30691701544808069-Desktop-main-banner-INSIDER--1-.gif",
   ];
 
   return (
