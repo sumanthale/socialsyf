@@ -9,16 +9,18 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   updateProfile,
+  FacebookAuthProvider,
 } from "firebase/auth";
-import { auth, db } from "../firebase/firebase";
+import { auth } from "../firebase/firebase";
 import { useNavigate } from "react-router";
-import { collection, getDocs } from "firebase/firestore";
 
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    type: "Buyer",
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -26,6 +28,8 @@ export const AuthProvider = ({ children }) => {
   const [allEvents, setAllEvents] = useState([]);
   // const location = useLocation();
   const provider = new GoogleAuthProvider();
+
+  const facebookProvider = new FacebookAuthProvider();
 
   const timeout = useRef();
   console.log("AuthProvider", { user });
@@ -126,6 +130,31 @@ export const AuthProvider = ({ children }) => {
       });
   }
 
+  function facebookSignIn() {
+    signInWithPopup(auth, facebookProvider)
+      .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
+        console.log(user);
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        // const credential = FacebookAuthProvider.credentialFromResult(result);
+        // const accessToken = credential.accessToken;
+
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        // const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        // const email = error.customData.email;
+        // The AuthCredential type that was used.
+        // const credential = FacebookAuthProvider.credentialFromError(error);
+        console.log(errorMessage);
+        // ...
+      });
+  }
   useEffect(() => {
     const subscription = onAuthStateChanged(auth, async (user) => {
       if (user != null) {
@@ -154,20 +183,20 @@ export const AuthProvider = ({ children }) => {
     }, 3000);
   };
 
-  useEffect(() => {
-    const fetchedEvents = [];
-    console.log("We are fetching events...");
+  // useEffect(() => {
+  //   const fetchedEvents = [];
+  //   console.log("We are fetching events...");
 
-    async function fetchData() {
-      const querySnapshot = await getDocs(collection(db, "events"));
-      querySnapshot.forEach((doc) => {
-        fetchedEvents.push(doc.data());
-      });
-      setEvents(fetchedEvents);
-      setAllEvents(fetchedEvents);
-    }
-    fetchData();
-  }, [user]);
+  //   async function fetchData() {
+  //     const querySnapshot = await getDocs(collection(db, "events"));
+  //     querySnapshot.forEach((doc) => {
+  //       fetchedEvents.push(doc.data());
+  //     });
+  //     setEvents(fetchedEvents);
+  //     setAllEvents(fetchedEvents);
+  //   }
+  //   fetchData();
+  // }, [user]);
 
   return (
     <AuthContext.Provider
@@ -178,12 +207,13 @@ export const AuthProvider = ({ children }) => {
         login,
         error,
         events,
+        setUser,
         setEvents,
         register,
         allEvents,
-        setUser,
         resetPassword,
         googleSignIn,
+        facebookSignIn,
       }}
     >
       {!isLoading ? (

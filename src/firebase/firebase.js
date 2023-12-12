@@ -9,12 +9,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDrFr313-a0sgrc0TIHMydk_5nsU4pTmmY",
-  authDomain: "rev-up-1db24.firebaseapp.com",
-  projectId: "rev-up-1db24",
-  storageBucket: "rev-up-1db24.appspot.com",
-  messagingSenderId: "763855326390",
-  appId: "1:763855326390:web:ee82a41b56387662df2a17",
+  apiKey: "AIzaSyDoPK7cBbLO43l7B2m5Fc6lwrb3-wBh2V0",
+  authDomain: "social-syf.firebaseapp.com",
+  projectId: "social-syf",
+  storageBucket: "social-syf.appspot.com",
+  messagingSenderId: "906852216482",
+  appId: "1:906852216482:web:3c549cfa8fef35ff9771fb",
 };
 
 // Initialize Firebase

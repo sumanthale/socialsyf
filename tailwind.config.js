@@ -3,6 +3,7 @@ import { tailwindConfig } from "@storefront-ui/react/tailwind-config";
 
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class",
   presets: [tailwindConfig],
   content: [
     "./index.html",

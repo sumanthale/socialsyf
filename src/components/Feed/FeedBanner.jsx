@@ -39,8 +39,8 @@ const FeedBanner = () => {
           modules={[Autoplay, Pagination]}
           className="mySwiper "
         >
-          {images.map((img) => (
-            <SwiperSlide className=" h-[14rem]" key={img.id}>
+          {images.map((img, idx) => (
+            <SwiperSlide className=" h-[14rem]" key={idx}>
               <div className="flex flex-col justify-center px-2">
                 <div className="px-8 bg-syf  rounded mb-3">
                   <div className="flex items-center mx-auto container justify-center md:justify-between py-2 text-base ">

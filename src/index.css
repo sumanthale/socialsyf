@@ -54,3 +54,8 @@
   min-height: 100%;
   max-height: 100%;
 }
+.fad {
+  position: relative;
+  font-family: "Font Awesome 5 Duotone";
+  font-weight: 900;
+}
