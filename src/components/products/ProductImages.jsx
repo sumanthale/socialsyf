@@ -7,65 +7,86 @@ import {
   SfIconChevronRight,
 } from "@storefront-ui/react";
 import classNames from "classnames";
+import ReactPlayer from "react-player";
+import ReviewVid from "../../assets/review2.mp4";
+// import ReviewThumbNail from "../../assets/review_thumbnail.png";
 
 const withBase = (filepath) =>
   `https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/gallery/${filepath}`;
 
 const images = [
   {
+    type: "img",
     imageSrc: withBase("gallery_1.png"),
     imageThumbSrc: withBase("gallery_1_thumb.png"),
     alt: "backpack1",
   },
   {
+    type: "img",
     imageSrc: withBase("gallery_2.png"),
     imageThumbSrc: withBase("gallery_2_thumb.png"),
     alt: "backpack2",
   },
   {
+    type: "img",
     imageSrc: withBase("gallery_3.png"),
     imageThumbSrc: withBase("gallery_3_thumb.png"),
     alt: "backpack3",
   },
   {
+    type: "img",
     imageSrc: withBase("gallery_4.png"),
     imageThumbSrc: withBase("gallery_4_thumb.png"),
     alt: "backpack4",
   },
   {
+    type: "img",
     imageSrc: withBase("gallery_5.png"),
     imageThumbSrc: withBase("gallery_5_thumb.png"),
     alt: "backpack5",
   },
   {
+    type: "img",
     imageSrc: withBase("gallery_6.png"),
     imageThumbSrc: withBase("gallery_6_thumb.png"),
     alt: "backpack6",
   },
   {
+    type: "img",
     imageSrc: withBase("gallery_7.png"),
     imageThumbSrc: withBase("gallery_7_thumb.png"),
     alt: "backpack7",
   },
   {
+    type: "img",
     imageSrc: withBase("gallery_8.png"),
     imageThumbSrc: withBase("gallery_8_thumb.png"),
     alt: "backpack8",
   },
   {
+    type: "img",
     imageSrc: withBase("gallery_9.png"),
     imageThumbSrc: withBase("gallery_9_thumb.png"),
     alt: "backpack9",
   },
   {
+    type: "img",
     imageSrc: withBase("gallery_10.png"),
     imageThumbSrc: withBase("gallery_10_thumb.png"),
     alt: "backpack10",
   },
   {
+    type: "img",
     imageSrc: withBase("gallery_11.png"),
     imageThumbSrc: withBase("gallery_11_thumb.png"),
     alt: "backpack11",
+  },
+  {
+    type: "video",
+    imageSrc: ReviewVid,
+    imageThumbSrc:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdla4fqpL_Ah6AVh_wiMpiW-aiTcgWE_gDQKprUhISw-MIF_PqOCQe7OhVR6_v-j2lXaw&usqp=CAU",
+    alt: "backpack12",
   },
 ];
 
@@ -154,8 +175,8 @@ export default function ProductImages() {
                 "border-transparent": activeIndex !== index,
               }
             )}
-            onMouseOver={() => setActiveIndex(index)}
-            onFocus={() => setActiveIndex(index)}
+            // onMouseOver={() => setActiveIndex(index)}
+            onClick={() => setActiveIndex(index)}
           >
             <img
               alt={alt}
@@ -177,18 +198,30 @@ export default function ProductImages() {
         drag={{ containerWidth: true }}
         onDragEnd={onDragged}
       >
-        {images.map(({ imageSrc, alt }, index) => (
+        {images.map(({ type, imageSrc, alt }, index) => (
           <div
             key={`${alt}-${index}`}
             className="flex justify-center h-full basis-full shrink-0 grow snap-center"
           >
-            <img
-              aria-label={alt}
-              aria-hidden={activeIndex !== index}
-              className="object-contain w-auto h-full"
-              alt={alt}
-              src={imageSrc}
-            />
+            {type === "img" ? (
+              <img
+                aria-label={alt}
+                aria-hidden={activeIndex !== index}
+                className="object-contain w-auto h-full"
+                alt={alt}
+                src={imageSrc}
+              />
+            ) : (
+              <ReactPlayer
+                url={imageSrc}
+                playing={true}
+                autoPlay
+                loop
+                muted
+                height={"100%"}
+                width={"100%"}
+              />
+            )}
           </div>
         ))}
       </SfScrollable>

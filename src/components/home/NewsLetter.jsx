@@ -32,7 +32,7 @@ export default function NewsletterBox() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative my-10">
       <div className="bg-neutral-100 p-4 sm:p-10 text-center">
         <p className="typography-headline-4 sm:typography-headline-3 font-bold">
           Subscribe and get discount on your first purchase!

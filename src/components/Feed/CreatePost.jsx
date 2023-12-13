@@ -2,7 +2,7 @@
 
 const CreatePost = () => {
   return (
-    <div className="p-4 md:p-6 shadow-lg bg-gray-50 rounded-lg ">
+    <div className="md:p-6 shadow-lg bg-gray-50 rounded-lg ">
       <div className="flex items-center space-x-4">
         <div className="flex-shrink-0">
           <img
@@ -21,7 +21,7 @@ const CreatePost = () => {
         </div>
       </div>
       <hr className="mt-3 mb-3" />
-      <div className="grid grid-cols-3 gap-1">
+      <div className="grid grid-cols-4 gap-1">
         <FeatureButton
           text="Live video"
           imageBgPosition="0px 0px"
@@ -36,6 +36,11 @@ const CreatePost = () => {
           text="Feeling/Activity"
           imageBgPosition="0px -25px"
           image={"	https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/yMDS19UDsWe.png"}
+        />
+        <FeatureButton
+          text="Intrest"
+          imageBgPosition="0px -25px"
+          image={"https://img.icons8.com/?size=256&id=5GRnl7omKlp3&format=png"}
         />
       </div>
     </div>

@@ -5,18 +5,20 @@ import FlashSale from "./FlashSale";
 import Collection from "./Collection";
 import Category from "./Category";
 // import Footer from "./Footer";
-// import NewsletterBox from "./NewsLetter";
+import NewsletterBox from "./NewsLetter";
+import Recommended from "./Recomendations";
 
 const Home = () => {
   return (
     <>
       <Slider />
+      <Recommended />
       <ProductGallery />
       <Category />
       <Collection />
       <FlashSale />
       {/* <SubSlider /> */}
-      {/* <NewsletterBox /> */}
+      <NewsletterBox />
     </>
   );
 };

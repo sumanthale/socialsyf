@@ -6,8 +6,10 @@ import {
   SfIconInfo,
   SfIconPackage,
   SfIconPercent,
+  SfIconPublishedWithChanges,
   SfIconShoppingCart,
   SfIconTune,
+  SfIconWarehouse,
 } from "@storefront-ui/react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
@@ -25,9 +27,19 @@ const buyerItems = [
     link: "/shop",
   },
   {
+    name: "Products",
+    icon: <SfIconWarehouse />,
+    link: "/products",
+  },
+  {
     name: "Offers",
     icon: <SfIconPercent />,
-    link: "",
+    link: "/offers",
+  },
+  {
+    name: "Apply",
+    icon: <SfIconPublishedWithChanges />,
+    link: "/apply",
   },
   {
     name: "Help Center",
@@ -94,12 +106,12 @@ const SideBar = () => {
       : buyerItems;
   return (
     <div className="flex items-center justify-center fixed w-[12%]">
-      <div className="flex flex-col items-center w-full h-full overflow-hidden text-black  rounded">
+      <div className="flex flex-col items-center w-full h-full overflow-hidden text-white  rounded">
         <div className="w-full px-2">
           <div className="flex flex-col items-center w-full mt-3 ">
             {items.map((item) => (
               <Link
-                className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-syf"
+                className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-syf  hover:text-black"
                 to={item.link}
                 key={item.name}
               >

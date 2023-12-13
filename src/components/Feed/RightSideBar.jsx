@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FeedBanner from "./FeedBanner";
 import ReactPlayer from "react-player";
-
+import VidSrc from "../../assets/review2.mp4";
 const RightSideBar = () => {
   const [play, setPlay] = useState(true);
 
@@ -15,17 +15,17 @@ const RightSideBar = () => {
           setPlay(!play);
         }}
       >
-        <h1 className="font-semibold ml-2 text-center">
+        <h1 className="font-bold text-xl ml-2 mb-2 text-center">
           Social SYF Live | Watch & Shop LIVE
         </h1>
-        <div className="persistent--Pt2B3 statusBadge--3R5oH badges_liveViewerBadge__3kwly w-full flex  top-12 left-3 absolute">
+        <div className="persistent--Pt2B3 statusBadge--3R5oH badges_liveViewerBadge__3kwly w-full flex  top-10 left-3 absolute">
           <div
             className="badges_smallBadge__sJpdq badges_badgeCommon__3UacB badges_liveBadge__3Xs9Q badges_smallBadge__sJpdq"
             data-testid="BaseBadge"
           >
             <span>LIVE</span>
           </div>
-          <div className="badges_badgeCommon__3UacB badges_grayBadge__-5337 badges_smallViewerLiveBadge__AGSaa">
+          <div className="badges_badgeCommon__3UacB badges_grayBadge__-5337 badges_smallViewerLiveBadge__AGSaa bg-white">
             <svg
               width="14px"
               height="9.882352941176471px"
@@ -49,7 +49,7 @@ const RightSideBar = () => {
                 <g
                   id="Badge-/-Live-and-Viewers-/-Basic"
                   transform="translate(-16.000000, -6.000000)"
-                  stroke="#FFFFFF"
+                  stroke="#000"
                   width="1.42857143"
                 >
                   <g id="Group" transform="translate(17.000000, 0.000000)">
@@ -71,14 +71,14 @@ const RightSideBar = () => {
             </svg>
             <div
               data-testid="LiveViewersCount"
-              className="badges_viewerCountText__248Qs"
+              className="badges_viewerCountText__248Qs text-black"
             >
               656
             </div>
           </div>
         </div>
         <ReactPlayer
-          url="https://www.youtube.com/watch?v=5DjN1_jMFJc"
+          url={VidSrc}
           playing={play}
           autoPlay
           loop

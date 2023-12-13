@@ -9,16 +9,7 @@ import {
 } from "@storefront-ui/react";
 import classNames from "classnames";
 import { useState } from "react";
-
-const products = Array.from(Array(10), (_, i) => ({
-  id: i.toString(),
-  name: "Athletic mens walking sneakers",
-  price: "$2,345.99",
-  img: {
-    src: "https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/sneakers.png",
-    alt: "White sneaker shoe",
-  },
-}));
+import { API_PRODUCTS } from "./data/cards";
 
 function ButtonPrev({ disabled, ...attributes }) {
   return (
@@ -64,9 +55,14 @@ ButtonNext.defaultProps = { disabled: false };
 
 export default function ProductGallery() {
   const tabs = ["New Launches", "Best Sellers", "Hidden Gems"];
+
   const [activeTab, setActiveTab] = useState(tabs[0]);
+
+  const start =
+    activeTab === "New Launches" ? 0 : activeTab === "Best Sellers" ? 10 : 20;
+
   return (
-    <div className="px-10">
+    <div className="px-6 ">
       <div className="relative">
         <div className="max-w-screen-xl mx-auto py-10 lg:py-14">
           <div className="flex justify-between items-center flex-col xl:flex-row">
@@ -100,37 +96,57 @@ export default function ProductGallery() {
         slotPreviousButton={<ButtonPrev />}
         slotNextButton={<ButtonNext />}
       >
-        {products.map(({ id, name, price, img }) => (
-          <div
-            key={id}
-            className="first:ms-auto last:me-auto ring-1 ring-inset ring-neutral-200 shrink-0 rounded-md hover:shadow-lg w-[148px] lg:w-[292px]"
-          >
-            <div className="relative">
-              <SfLink href="#" className="block">
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="block object-cover h-auto rounded-md aspect-square lg:w-[290px] lg:h-[290px]"
-                />
-              </SfLink>
-              <SfButton
-                variant="tertiary"
-                size="sm"
-                square
-                className="absolute bottom-0 right-0 mr-2 mb-2 bg-white border border-neutral-200 !rounded-full"
-                aria-label="Add to wishlist"
-              >
-                <SfIconFavorite size="sm" />
-              </SfButton>
+        {API_PRODUCTS.slice(start).map(
+          ({
+            id,
+            title,
+            price,
+            thumbnail,
+            description,
+            discountPercentage,
+          }) => (
+            <div
+              key={id}
+              className="first:ms-auto last:me-auto ring-1 ring-inset ring-neutral-200 shrink-0 rounded-md hover:shadow-lg w-[148px] lg:w-[292px]"
+            >
+              <div className="relative p-2">
+                <SfLink href="#" className="block">
+                  <img
+                    src={thumbnail}
+                    alt={title}
+                    className="block object-contain h-auto rounded-md aspect-square lg:w-[290px] lg:max-h-[230px]"
+                  />
+                </SfLink>
+                <SfButton
+                  variant="tertiary"
+                  size="sm"
+                  square
+                  className="absolute bottom-0 right-0 mr-2 mb-2 bg-white border border-neutral-200 !rounded-full"
+                  aria-label="Add to wishlist"
+                >
+                  <SfIconFavorite size="sm" />
+                </SfButton>
+              </div>
+              <div className="w-full overflow-hidden p-2 ltr:pl-0 rtl:pr-0">
+                <h2 className="truncate mb-1 font-semibold md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg text-heading">
+                  {title}
+                </h2>
+                <p className="text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate">
+                  {description}
+                </p>
+                <div
+                  className="font-semibold text-sm mt-1.5 flex flex-wrap gap-x-2 sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3
+           text-heading"
+                >
+                  <span className="inline-block false">${price}</span>
+                  <del className="sm:text-base font-normal text-gray-800">
+                    ${Number(price / (1 - discountPercentage / 100)).toFixed(2)}
+                  </del>
+                </div>
+              </div>
             </div>
-            <div className="p-2 border-t border-neutral-200 ">
-              <SfLink href="#" variant="secondary" className="no-underline">
-                {name}
-              </SfLink>
-              <span className="block mt-2 font-bold">{price}</span>
-            </div>
-          </div>
-        ))}
+          )
+        )}
       </SfScrollable>
     </div>
   );

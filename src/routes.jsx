@@ -8,11 +8,10 @@ import AddProduct from "./components/seller/AddProduct";
 import ViewProduct from "./components/products/ViewProduct";
 import Cart from "./components/products/Cart";
 import Checkout from "./components/products/Checkout";
-// import AuthLayout from "./layouts/AuthLayout";
-
-// import MyBookings from "../Components/Events/MyBookings";
-
-// https://www.synchrony.com/financing/credit-cards APPY SEction
+import Offers from "./components/offers/Offers";
+import Apply from "./components/offers/Apply";
+import Products from "./components/products/Products";
+import Profile from "./components/profile/profile";
 
 export default function ROUTES() {
   return (
@@ -21,11 +20,15 @@ export default function ROUTES() {
         <Route exact path="/" element={<Feed />} />
         <Route exact path="/shop" element={<Home />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/products" element={<Products />} />
         <Route exact path="/allproducts" element={<AllProducts />} />
         <Route exact path="/addProduct" element={<AddProduct />} />
         <Route exact path="/product" element={<ViewProduct />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/checkout" element={<Checkout />} />
+        <Route exact path="/offers" element={<Offers />} />
+        <Route exact path="/apply" element={<Apply />} />
+        <Route exact path="/profile" element={<Profile />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />

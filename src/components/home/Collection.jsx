@@ -16,7 +16,7 @@ export default function Collection() {
   ];
 
   return (
-    <div className="mx-auto max-w-[1920px] px-4 md:px-8 2xl:px-16 my-8">
+    <div className="mx-auto max-w-[1920px] px-6 my-8">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-y-12 lg:gap-y-14 xl:gap-y-0 xl:gap-x-7 mb-12 lg:mb-14 xl:mb-2">
         <div className="mx-auto xl:h-full xl:col-span-2 ">
           <a

@@ -1,11 +1,13 @@
+/* eslint-disable react/prop-types */
+import InfluenceerPost from "./InfluencerPost";
 import Post from "./Post";
 
-const Posts = () => {
+const Posts = ({ isFeatured }) => {
   return (
     <>
-      {[1, 2, 3, 4, 5, 6].map((el) => (
-        <Post key={el} />
-      ))}
+      {isFeatured
+        ? [1, 2, 3, 4, 5, 6].map((el) => <InfluenceerPost key={el} />)
+        : [1, 2, 3, 4, 5, 6].map((el) => <Post key={el} />)}
     </>
   );
 };

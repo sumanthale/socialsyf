@@ -9,18 +9,18 @@ const MainLayout = () => {
   return (
     <main>
       <div className="pb-[5rem]">
-        <div className="fixed w-full  bg-white z-[999]">
+        <div className="fixed w-full  bg-[#222831] text-white z-[999]">
           <BaseMegaMenu />
         </div>
       </div>
 
-      <div className="flex gap-x-4">
+      <div className="flex">
         {smallBar ? (
           <>
-            <div className="w-[14%]">
+            <div className="w-[14%] bg-[#222831]  text-white">
               <SideBar />
             </div>
-            <div className="w-[83%]">
+            <div className="w-[86%] p-2">
               <Outlet />
             </div>
           </>

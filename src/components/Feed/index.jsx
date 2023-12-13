@@ -5,17 +5,15 @@ import Posts from "./Posts";
 const Feed = () => {
   return (
     <div>
-      <div className="">
-        {/* <FeedBanner /> */}
-        {/* <div className="grid grid-cols-9 gap-x-4 pt-48"> */}
-        <div className="grid grid-cols-9 gap-x-4">
+      <div className="pl-5">
+        <div className="grid grid-cols-9">
           <div className="col-span-5">
             <CreatePost />
 
-            <Posts />
+            <Posts isFeatured={false} />
           </div>
 
-          <div className="col-span-3">
+          <div className="ml-4 col-span-4">
             <LeftSideBar />
           </div>
         </div>

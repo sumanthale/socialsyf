@@ -4,15 +4,18 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { Toaster } from "react-hot-toast";
+import NavigationScroll from "./layouts/ScrollToTop.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <AuthProvider>
-      <Toaster
-        toastOptions={{
-          duration: 5000,
-        }}
-      />
-      <App />
+      <NavigationScroll>
+        <Toaster
+          toastOptions={{
+            duration: 5000,
+          }}
+        />
+        <App />
+      </NavigationScroll>
     </AuthProvider>
   </BrowserRouter>
 );

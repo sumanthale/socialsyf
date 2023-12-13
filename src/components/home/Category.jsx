@@ -6,16 +6,7 @@ import {
   SfScrollable,
 } from "@storefront-ui/react";
 import classNames from "classnames";
-
-const products = Array.from(Array(16), (_, i) => ({
-  id: i.toString(),
-  name: "Athletic mens walking sneakers",
-  price: "$2,345.99",
-  img: {
-    src: "https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/sneakers.png",
-    alt: "White sneaker shoe",
-  },
-}));
+import { categories_data } from "../data/cards";
 
 function ButtonPrev({ disabled, ...attributes }) {
   return (
@@ -61,7 +52,7 @@ ButtonNext.defaultProps = { disabled: false };
 
 export default function Category() {
   return (
-    <div className="px-10 pb-6">
+    <div className="px-6 pb-6">
       <div className="relative">
         <div className="w-full mx-auto py-10 lg:py-14">
           <div className="flex justify-between items-center flex-col xl:flex-row">
@@ -81,7 +72,7 @@ export default function Category() {
         slotPreviousButton={<ButtonPrev />}
         slotNextButton={<ButtonNext />}
       >
-        {products.map(({ id }) => (
+        {categories_data.map((cat, id) => (
           <a
             key={id}
             href="/category/sneakers"
@@ -93,15 +84,15 @@ export default function Category() {
                   <span className="category1">
                     <span className="category2">
                       <img
-                        className="category3 rounded-full"
+                        className="category3 w-32 h-32 rounded-full "
                         alt=""
                         aria-hidden="true"
-                        src="https://chawkbazar.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fcategory%2Fsneakers.jpg&w=256&q=100"
+                        src={cat.image}
                       />
                     </span>
                     <img
                       alt="Sneakers"
-                      src="https://chawkbazar.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fcategory%2Fsneakers.jpg&w=256&q=100"
+                      src={cat.image}
                       decoding="async"
                       data-nimg="intrinsic"
                       className="category4 object-cover bg-gray-300 rounded-full"
@@ -125,7 +116,7 @@ export default function Category() {
                 </div>
               </div>
               <h4 className="text-heading text-sm md:text-base xl:text-lg font-semibold capitalize">
-                Category
+                {cat.label}
               </h4>
             </div>
           </a>

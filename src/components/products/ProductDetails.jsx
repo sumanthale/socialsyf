@@ -13,13 +13,15 @@ import {
   SfIconWarehouse,
   SfIconSafetyCheck,
   SfScrollable,
-  SfIconPercent,
+  SfIconLocationOn,
 } from "@storefront-ui/react";
 import { useCounter } from "react-use";
-import { useId } from "react";
+import { useEffect, useId, useState } from "react";
 import { clamp } from "@storefront-ui/shared";
+import { getPlaceByLatLan } from "../../api/api";
 
 export default function ProductDetails() {
+  const [place, setPlace] = useState("Hyderabad,Telangana,India");
   const inputId = useId();
   const min = 1;
   const max = 20;
@@ -29,6 +31,47 @@ export default function ProductDetails() {
     const nextValue = parseFloat(currentValue);
     set(Number(clamp(nextValue, min, max)));
   }
+  useEffect(() => {
+    try {
+      // fetchData();
+    } catch (error) {
+      // setResturants(data);
+    }
+  }, []);
+  const fetchData = async () => {
+    geoLocation();
+  };
+  const geoLocation = async () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async ({ coords: { latitude, longitude } }) => {
+          console.log("LAT " + latitude);
+          console.log("LNG " + longitude);
+          const name = await getPlaceByLatLan(latitude, longitude);
+          setPlace(name);
+        },
+        showError
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+  function showError(error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        alert("Enable location to get personalized search results. 🌍");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+        alert("The request to get user location timed out.");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("An unknown error occurred.");
+        break;
+    }
+  }
   return (
     <section className="md:max-w-[640px]">
       <div className="inline-flex items-center justify-center text-sm font-medium text-white bg-secondary-600 py-1.5 px-3 mb-4">
@@ -36,12 +79,15 @@ export default function ProductDetails() {
         Sale
       </div>
       <h1 className="mb-1 font-bold typography-headline-4">
-        Mini Foldable Drone with HD Camera FPV Wifi RC Quadcopter
+        Osprey Stratos 34L Men&apos;s Hiking Backpack, Cetacean Blue
       </h1>
-      <strong className="block font-bold typography-headline-3">
-        $2,345.99
+      <strong className="block font-bold text-3xl my-2">
+        <span className="text-red-700 ">-68%</span> $2,345.99
       </strong>
-      <div className="inline-flex items-center mt-4 mb-2">
+      <h1 className="mb-1 text-slate-700 text-[13px]">
+        M.R.P.: <del>$3,799</del>
+      </h1>
+      <div className="inline-flex items-center mt-2 ">
         <SfRating size="xs" value={3} max={5} />
         <SfCounter className="ml-1" size="xs">
           123
@@ -54,51 +100,73 @@ export default function ProductDetails() {
           123 reviews
         </SfLink>
       </div>
-      <ul className="mb-4 font-normal typography-text-sm">
-        <li>HD Pictures & Videos and FPV Function</li>
-        <li>Intelligent Voice Control</li>
-        <li>Multiple Fun Flights</li>
-        <li>Easy to Use</li>
-        <li>Foldable Design & Double Flight Time</li>
+      <h1 className="mb-1 text-slate-900 font-bold text-[11px]">
+        2K+ bought in the past month.
+      </h1>
+      <h1 className="mb-3 text-slate-900 text-[13px]">
+        Sold by:{" "}
+        <span className="text-black font-semibold">
+          Appario Retail Private Ltd
+        </span>
+      </h1>
+
+      <ul className="mb-4 font-normal typography-text-sm list-disc">
+        <li>
+          Accessory straps on lower front panel are perfect for pads or blankets
+        </li>
+        <li>Top loading design with a secure drawcord closure</li>
+        <li>Front panel lash loops for attaching extra gear</li>
       </ul>
 
       <div className="mt-6">
         <p className="mb-4 text-lg font-semibold dark:text-gray-400 flex items-center gap-2">
-          <SfIconPercent />
-          Offers
+          <SfIconLocationOn />
+          Other Sellers Near You New (2) from $2,345.99
         </p>
         <SfScrollable className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          <div className="shadow  text-gray-500 border  w-36 h-28 shrink-0 p-2  border-gray-300">
-            <h1 className="text-sm font-bold"> Partner Offers </h1>
-            <p className="text-xs mt-2 font-medium line-clamp-3">
-              Spend ₹3,500.00 or more and get 6% off on Qualifying items
-            </p>
+          <div className="shadow  text-gray-500 border  h-36 shrink-0 p-2  border-gray-300 grid place-items-center">
+            <div className="flex text-xs gap-x-3">
+              <p className="">Sold by:</p>
+              <div className="space-y-1.5">
+                <p className="font-bold text-black">Thinkline LLC</p>
+                <h1 className=" text-slate-900 font-semibold text-[11px]">
+                  less than 3 miles away from you.
+                </h1>
+                <div className="inline-flex items-center">
+                  <SfRating size="xs" value={3} max={5} />
+                  <SfCounter className="ml-1" size="xs">
+                    123
+                  </SfCounter>
+                </div>
+                <p>99% positive over last 12 months</p>
+                <div>
+                  <span className="font-bold mr-3 text-sm"> $2,345.99</span>
+                  <SfButton size="sm">Add To Cart</SfButton>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="shadow  text-gray-500 border  w-36 h-28 shrink-0 p-2  border-gray-300">
-            <h1 className="text-sm font-bold"> Bank Offers </h1>
-            <p className="text-xs mt-2 font-medium line-clamp-3">
-              Upto ₹1,500.00 discount on select Credit Cards, select Debit
-              CardsUpto ₹1,500.00 discount on select Credit Cards, select
-            </p>
-          </div>
-          <div className="shadow  text-gray-500 border  w-36 h-28 shrink-0 p-2  border-gray-300">
-            <h1 className="text-sm font-bold"> No Cost EMI </h1>
-            <p className="text-xs mt-2 font-medium line-clamp-3">
-              Upto ₹107.39 EMI interest savings on Amazon Pay ICICI Bank Credit
-              CardsUpto ₹107.39 EMI interest savings on Amazon Pay
-            </p>
-          </div>
-          <div className="shadow  text-gray-500 border  w-36 h-28 shrink-0 p-2  border-gray-300">
-            <h1 className="text-sm font-bold"> Partner Offers </h1>
-            <p className="text-xs mt-2 font-medium line-clamp-3">
-              Spend ₹3,500.00 or more and get 6% off on Qualifying items
-            </p>
-          </div>
-          <div className="shadow  text-gray-500 border  w-36 h-28 shrink-0 p-2  border-gray-300">
-            <h1 className="text-sm font-bold"> Cashback </h1>
-            <p className="text-xs mt-2 font-medium line-clamp-3">
-              Spend ₹3,500.00 or more and get 6% off on Qualifying items
-            </p>
+          <div className="shadow  text-gray-500 border  h-36 shrink-0 p-2  border-gray-300 grid place-items-center">
+            <div className="flex text-xs gap-x-3">
+              <p className="">Sold by:</p>
+              <div className="space-y-1.5">
+                <p className="font-bold text-black"> DESTEK </p>
+                <h1 className=" text-slate-900 font-semibold text-[11px]">
+                  less than 5 miles away from you.
+                </h1>
+                <div className="inline-flex items-center">
+                  <SfRating size="xs" value={4} max={5} />
+                  <SfCounter className="ml-1" size="xs">
+                    33
+                  </SfCounter>
+                </div>
+                <p>94% positive over last 6 months</p>
+                <div>
+                  <span className="font-bold mr-3 text-sm"> $2,345.99</span>
+                  <SfButton size="sm">Add To Cart</SfButton>
+                </div>
+              </div>
+            </div>
           </div>
         </SfScrollable>
       </div>

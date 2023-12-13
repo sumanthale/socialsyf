@@ -16,11 +16,10 @@ import {
 import { useContext, useEffect, useRef, useState } from "react";
 import { useClickAway } from "react-use";
 import { CSSTransition } from "react-transition-group";
-import LogoGif from "../assets/logo.gif";
 import Login from "../components/auth/Login";
 import { AuthContext } from "../context/AuthContext";
 import CustomSearch from "./CustomSearch";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cart from "../components/products/Cart";
 
 const bannerDetails = {
@@ -246,27 +245,33 @@ export default function BaseMegaMenu() {
       >
         <div className="flex items-center justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
           <SfButton
-            className="block md:hidden !text-black bg-transparent font-body hover:bg-primary-800 hover:text-black  active:bg-primary-900 active:text-black "
+            className="block md:hidden !text-white bg-transparent font-body hover:bg-primary-800 hover:text-white  active:bg-primary-900 active:text-white "
             aria-haspopup="true"
             aria-expanded={isOpen}
             variant="tertiary"
             onClick={toggle}
             square
           >
-            <SfIconMenu className=" !text-black " />
+            <SfIconMenu className=" !text-white " />
           </SfButton>
-          <a
-            href="#"
+          <Link
+            to="/"
             aria-label="SF Homepage"
-            className="flex shrink-0 ml-4 md:ml-0 mr-2 md:mr-10 !text-black focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+            className="flex shrink-0 ml-4 md:ml-0 mr-2 md:mr-10 !text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
-              <source srcSet={LogoGif} />
-              <img src={LogoGif} alt="Sf Logo" className="h-10 " />
+              <source
+                srcSet={"https://www.synchrony.com/syc/img/synchrony_logo.svg"}
+              />
+              <img
+                src={"https://www.synchrony.com/syc/img/synchrony_logo.svg"}
+                alt="Sf Logo"
+                className="h-10 "
+              />
             </picture>
-          </a>
+          </Link>
           <SfButton
-            className="hidden md:flex !text-black bg-transparent font-body hover:bg-primary-800 hover:text-black  active:bg-primary-900 active:text-black "
+            className="hidden md:flex !text-white bg-transparent font-body hover:bg-primary-800 hover:text-white  active:bg-primary-900 active:text-white "
             aria-haspopup="true"
             aria-expanded={isOpen}
             slotSuffix={<SfIconExpandMore className="hidden md:inline-flex" />}
@@ -301,7 +306,7 @@ export default function BaseMegaMenu() {
                     className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white shadow-lg p-0 max-h-screen overflow-y-auto md:!absolute md:!top-20 max-w-[376px] md:max-w-full md:p-6 mr-[50px] md:mr-0"
                   >
                     <div className="sticky top-0 flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
-                      <div className="flex items-center font-medium !text-black typography-text-lg">
+                      <div className="flex items-center font-medium !text-white typography-text-lg">
                         Browse products
                       </div>
                       <SfButton
@@ -309,7 +314,7 @@ export default function BaseMegaMenu() {
                         variant="tertiary"
                         aria-label="Close navigation menu"
                         onClick={close}
-                        className="!text-black  ml-2"
+                        className="!text-white  ml-2"
                       >
                         <SfIconClose />
                       </SfButton>
@@ -359,7 +364,7 @@ export default function BaseMegaMenu() {
                       variant="tertiary"
                       aria-label="Close navigation menu"
                       onClick={close}
-                      className="!text-black hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
+                      className="!text-white hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
                     >
                       <SfIconClose className="text-neutral-500" />
                     </SfButton>
@@ -376,7 +381,7 @@ export default function BaseMegaMenu() {
             {items.map((actionItem, idx) => (
               <SfButton
                 type="button"
-                className="!text-black  bg-transparent hover:bg-primary-800 hover:text-black  active:bg-primary-900 active:text-black "
+                className="!text-white  bg-transparent hover:bg-primary-800 hover:text-white  active:bg-primary-900 active:text-white "
                 key={idx}
                 variant="tertiary"
                 slotPrefix={actionItem.icon}
