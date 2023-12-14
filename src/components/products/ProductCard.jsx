@@ -44,7 +44,7 @@ export default function ProductCard({ product }) {
             <SfCounter size="xs">{stock}</SfCounter>
           </SfLink>
         </div>
-        <p className="block py-2 font-normal typography-text-sm text-neutral-700 line-clamp-4">
+        <p className="block py-2.5 font-normal typography-text-sm text-neutral-700 line-clamp-4 max-h-28">
           {description}
         </p>
         <span className="block pb-2 font-bold typography-text-lg">

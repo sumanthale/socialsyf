@@ -100,7 +100,7 @@ export default function OrderSummary() {
             />
             <div className="col-span-7">
               <span className="font-semibold text-[14px]">
-                Get 2% back (<span className="text-red-500">$22</span>) + No
+                Get 2% back (<span className="text-red-500">$29.5</span>) + No
                 Annual Fee* with Synchrony Premier World Mastercard® credit
                 card.
               </span>

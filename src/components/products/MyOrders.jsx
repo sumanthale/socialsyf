@@ -8,7 +8,7 @@ const data = [
     status: "Paid",
     name: "Sumanth Ale",
     product: "Woods 34L Men's Hiking Backpack",
-    amount: "$1,375.77",
+    amount: "On the way",
     src: "https://sumanthale.netlify.app/sumanthlogo.91ec0aabdc81f0b683a3.jpg",
   },
 
@@ -16,57 +16,20 @@ const data = [
     id: "10421",
     date: "1 Dec, 10:20 AM",
     status: "Paid",
-    name: "Orlando Imieto",
+    name: "Sumanth Ale",
     product: "Nike Sport V2",
-    amount: "$140.20",
-    src: "https://demos.creative-tim.com/soft-ui-dashboard-pro-tailwind/assets/img/team-2.jpg",
-  },
-
-  {
-    id: "34233",
-    date: "1 Dec, 10:53 AM",
-    status: "Paid",
-    name: "Alice Murinho",
-    product: "Valvet T-shirt",
-    amount: "$42.00",
-    src: "https://demos.creative-tim.com/soft-ui-dashboard-pro-tailwind/assets/img/team-1.jpg",
-  },
-  {
-    id: "52234",
-    date: "1 Dec, 11:13 AM",
-    status: "Refunded",
-    name: "Michael Mirra",
-    product: "Leather Wallet",
-    amount: "$25.20",
-    src: "https://demos.creative-tim.com/soft-ui-dashboard-pro-tailwind/assets/img/team-3.jpg",
-  },
-  {
-    id: "23423",
-    date: "1 Dec, 12:20 PM",
-    status: "Paid",
-    name: "Andrew Nichel",
-    product: "Bracelet Onu-Lino",
-    amount: "$19.20",
-    src: "https://demos.creative-tim.com/soft-ui-dashboard-pro-tailwind/assets/img/team-4.jpg",
-  },
-  {
-    id: "45353",
-    date: "1 Dec, 1:40 PM",
-    status: "Canceled",
-    name: "Sebastian Koga",
-    product: "Backpack Niver	",
-    amount: "$44.20",
-    src: "https://demos.creative-tim.com/soft-ui-dashboard-pro-tailwind/assets/img/team-5.jpg",
+    amount: "Delivered",
+    src: "https://sumanthale.netlify.app/sumanthlogo.91ec0aabdc81f0b683a3.jpg",
   },
 ];
 
-const Orders = () => {
+const MyOrders = () => {
   return (
     <div>
-      <div className="bg-white p-8 rounded-md w-full">
+      <div className="bg-white p-8 rounded-md w-full min-h-[87.8vh]">
         <div className=" flex items-center justify-between pb-6">
           <div>
-            <h2 className="text-gray-600 font-semibold">Product Orders</h2>
+            <h2 className="text-gray-600 font-semibold">My Orders</h2>
             <span className="text-xs">All orders</span>
           </div>
           <div className="flex items-center justify-between">
@@ -90,14 +53,6 @@ const Orders = () => {
                 id=""
                 placeholder="search..."
               />
-            </div>
-            <div className="lg:ml-40 ml-10 space-x-8">
-              <button className="bg-primary-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">
-                New Report
-              </button>
-              <button className="bg-primary-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">
-                Create Order
-              </button>
             </div>
           </div>
         </div>
@@ -126,7 +81,7 @@ const Orders = () => {
                       Status
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                      Revenue
+                      Track
                     </th>
                   </tr>
                 </thead>
@@ -200,20 +155,6 @@ const Orders = () => {
                   ))}
                 </tbody>
               </table>
-              <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                <span className="text-xs xs:text-sm text-gray-900">
-                  Showing 1 to 5 of 50 Entries
-                </span>
-                <div className="inline-flex mt-2 xs:mt-0">
-                  <button className="text-sm text-white transition duration-150 hover:bg-primary-500 bg-primary-600 font-semibold py-2 px-4 rounded-l">
-                    Prev
-                  </button>
-                  &nbsp; &nbsp;
-                  <button className="text-sm text-white transition duration-150 hover:bg-primary-500 bg-primary-600 font-semibold py-2 px-4 rounded-r">
-                    Next
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -222,4 +163,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default MyOrders;

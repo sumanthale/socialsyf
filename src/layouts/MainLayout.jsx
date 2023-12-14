@@ -5,6 +5,7 @@ import SmallSideBar from "./SmallSideBar";
 
 const MainLayout = () => {
   let smallBar = true;
+  // let color = "#131921";
 
   return (
     <main>

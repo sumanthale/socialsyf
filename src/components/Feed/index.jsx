@@ -152,13 +152,13 @@ const Feed = () => {
                     key={idx}
                   >
                     <div className="relative">
-                      <SfLink href="#" className="block">
+                      <Link to="/product" className="block">
                         <img
                           src={photo.src}
                           alt="Great product"
                           className="object-cover h-auto rounded-md aspect-square"
                         />
-                      </SfLink>
+                      </Link>
                       <SfButton
                         variant="tertiary"
                         size="sm"

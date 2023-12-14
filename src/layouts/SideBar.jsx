@@ -1,9 +1,9 @@
 import {
-  SfIconAdd,
   SfIconContactSupport,
   SfIconGridView,
   SfIconHome,
   SfIconInfo,
+  SfIconLogout,
   SfIconPackage,
   SfIconPercent,
   SfIconPublishedWithChanges,
@@ -34,7 +34,7 @@ const buyerItems = [
   {
     name: "My Orders",
     icon: <SfIconWarehouse />,
-    link: "/orders",
+    link: "/myorder",
   },
   {
     name: "Offers",
@@ -61,6 +61,11 @@ const buyerItems = [
     icon: <SfIconInfo />,
     link: "",
   },
+  {
+    name: "Logout",
+    icon: <SfIconLogout />,
+    link: "",
+  },
 ];
 
 const sellerItems = [
@@ -75,14 +80,19 @@ const sellerItems = [
     link: "/dashboard",
   },
   {
-    name: "Add Product",
-    icon: <SfIconAdd />,
-    link: "",
+    name: "Orders",
+    icon: <SfIconWarehouse />,
+    link: "/orders",
   },
   {
     name: "My Products",
     icon: <SfIconPackage />,
     link: "/allproducts",
+  },
+  {
+    name: "My Profile",
+    icon: <SfIconPackage />,
+    link: "/profile",
   },
   {
     name: "Help Center",
@@ -95,8 +105,8 @@ const sellerItems = [
     link: "",
   },
   {
-    name: "AboutUs",
-    icon: <SfIconInfo />,
+    name: "Logout",
+    icon: <SfIconLogout />,
     link: "",
   },
 ];

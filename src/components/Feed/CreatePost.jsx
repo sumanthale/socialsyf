@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
 
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+
 const CreatePost = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div className="md:p-6 shadow-lg bg-gray-50 rounded-lg ">
       <div className="flex items-center space-x-4">
@@ -8,7 +12,7 @@ const CreatePost = () => {
           <img
             alt=""
             className="w-12 h-12 rounded-full ri ri dark:bg-gray-500 ri ri"
-            src="https://source.unsplash.com/40x40/?portrait?1"
+            src={user.url}
           />
         </div>
         <div
@@ -16,7 +20,7 @@ const CreatePost = () => {
           //   onClick={() => setIsOpen(true)}
         >
           <h3 className="md:text-lg text-gray-500">
-            Whats on your mind, Sumanth ?
+            Whats on your mind, {user.name} ?
           </h3>
         </div>
       </div>

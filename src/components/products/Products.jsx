@@ -1,16 +1,28 @@
+import {
+  SfButton,
+  SfCounter,
+  SfIconFavorite,
+  SfIconVisibility,
+  SfLink,
+  SfRating,
+} from "@storefront-ui/react";
 import { API_PRODUCTS } from "../data/cards";
 import Filter from "./Filter";
 import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   return (
     <section className="bg-gray-50 font-poppins dark:bg-gray-800 absolute w-full left-0 -mt-2">
       <div className="px-4 py-4 mx-auto lg:py-6 md:px-6">
-        <div className="flex flex-wrap max-w-screen-2xl mb-24 -mx-3">
-          <div className="w-full pr-2 lg:w-1/4 lg:block">
-            <Filter />
+        <div className=" max-w-screen-2xl mb-24 -mx-3 grid grid-cols-12 gap-x-5">
+          <div className="col-span-3 h-full">
+            <div className="fixed overflow-y-scroll overflow-x-hidden top-14 bottom-0 pt-10 pb-6">
+              <Filter />
+            </div>
           </div>
-          <div className="w-full px-3 lg:w-3/4">
+
+          <div className="w-full px-3 col-span-9 ">
             <div className="px-3 mb-4">
               <div className="items-center justify-between hidden px-3 py-2 bg-gray-100 md:flex dark:bg-gray-900 ">
                 <div className="flex">
@@ -93,6 +105,66 @@ const Products = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-x-3 md:gap-x-5 xl:gap-x-7 gap-y-4 lg:gap-y-5 xl:gap-y-6 2xl:gap-y-8">
+              <div className="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px] relative">
+                <div className="relative">
+                  <SfLink href="#" className="block">
+                    <img
+                      src={
+                        "https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/gallery/gallery_1.png"
+                      }
+                      alt="Great product"
+                      className="object-cover h-auto rounded-md aspect-square"
+                      width="300"
+                      height="300"
+                    />
+                  </SfLink>
+                  <SfButton
+                    variant="tertiary"
+                    size="sm"
+                    square
+                    className="absolute bottom-0 right-0 mr-2 mb-2 bg-white ring-1 ring-inset ring-neutral-200 !rounded-full"
+                    aria-label="Add to wishlist"
+                  >
+                    <SfIconFavorite size="sm" />
+                  </SfButton>
+                </div>
+                <div className="p-4 border-t border-neutral-200  min-h-[270px]">
+                  <SfLink href="#" variant="secondary" className="no-underline">
+                    Woods 34L Men&apos;s Backpack
+                  </SfLink>
+                  <div className="flex items-center pt-1">
+                    <SfRating halfIncrement size="xs" value={4.5} max={5} />
+
+                    <SfLink
+                      href="#"
+                      variant="secondary"
+                      className="pl-1 no-underline"
+                    >
+                      <SfCounter size="xs">{20}</SfCounter>
+                    </SfLink>
+                  </div>
+                  <p className="block py-2.5 font-normal typography-text-sm text-neutral-700 line-clamp-4 max-h-28">
+                    Accessory straps on lower front panel are perfect for pads
+                    or blankets Top loading design with a secure drawcord
+                    closure
+                  </p>
+                  <span className="block pb-2 font-bold typography-text-lg">
+                    $1,410.77
+                  </span>
+                </div>
+                <Link
+                  to={`/product`}
+                  className="w-full text-black absolute bottom-5 grid place-items-center"
+                >
+                  <SfButton
+                    size="sm"
+                    className="!text-black"
+                    slotPrefix={<SfIconVisibility size="sm" color="black" />}
+                  >
+                    View Details
+                  </SfButton>
+                </Link>
+              </div>
               {API_PRODUCTS.map((product) => (
                 <ProductCard product={product} key={product.id} />
               ))}

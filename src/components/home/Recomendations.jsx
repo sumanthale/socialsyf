@@ -2,35 +2,7 @@
 // import { SfLink, SfButton, SfIconFavorite } from "@storefront-ui/react";
 import { Link } from "react-router-dom";
 import { RECOMENDED_SALE } from "../data/cards";
-const post = {
-  retailName: "Woods LTD",
-  avatar:
-    "https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/gallery/gallery_7.png",
-  src: "https://oliversapparel.com/cdn/shop/articles/ali-kazal-gcOMSDzWvR8-unsplash_900x.jpg?v=1653675309",
-  images: [
-    {
-      src: "https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/gallery/gallery_1.png",
-      name: "Woods",
-      price: "1,410.77",
-      discount: "38",
-    },
-    {
-      src: "https://m.media-amazon.com/images/I/71GxZAYa6UL._AC_UL480_FMwebp_QL65_.jpg",
-      name: "FUR JADEN",
-      price: "849",
-      discount: "46",
-    },
-    {
-      src: "https://m.media-amazon.com/images/I/71w0jq73ZqL._AC_UL480_FMwebp_QL65_.jpg",
-      name: "Impulse",
-      price: "1755",
-      discount: "53",
-    },
-  ],
-  description:
-    "Ready to hit the trails with my trusty sidekick! 🌲🎒 Adventure awaits, and my new hiking bag is geared up for the journey ahead. #TrailBlazer #NewAdventureBuddy",
-  time: 1,
-};
+
 export default function Recommended() {
   return (
     <div className="px-6 border ">
@@ -126,7 +98,7 @@ export default function Recommended() {
                 alt={"backpack"}
                 decoding="async"
                 data-nimg="intrinsic"
-                className="c4 max-h-[200px] w-full object-cover  bg-gray-200 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105"
+                className="c4 max-h-[200px] w-full  bg-gray-200 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105"
               />
             </span>
             <div className="absolute top-3.5 md:top-5 3xl:top-7 ltr:left-3.5 rtl:right-3.5 ltr:md:left-5 rtl:md:right-5 ltr:3xl:left-7 rtl:3xl:right-7 flex flex-col gap-y-1 items-start"></div>

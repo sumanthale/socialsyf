@@ -13,6 +13,8 @@ import Apply from "./components/offers/Apply";
 import Products from "./components/products/Products";
 import Profile from "./components/profile/profile";
 import Orders from "./components/products/orders";
+import Order from "./components/products/Order";
+import MyOrders from "./components/products/MyOrders";
 
 export default function ROUTES() {
   return (
@@ -31,6 +33,9 @@ export default function ROUTES() {
         <Route exact path="/apply" element={<Apply />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/orders" element={<Orders />} />
+        <Route exact path="/order" element={<Order />} />
+        <Route exact path="/myorder" element={<MyOrders />} />
+        <Route exact path="/order/:id" element={<Order />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />

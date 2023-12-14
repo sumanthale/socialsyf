@@ -20,12 +20,14 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState({
     type: "Buyer",
+    name: "Sumanth",
+    fullName: "Sumanth Ale",
+    url: "https://sumanthale.netlify.app/sumanthlogo.91ec0aabdc81f0b683a3.jpg",
   });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const [events, setEvents] = useState([]);
-  const [allEvents, setAllEvents] = useState([]);
   // const location = useLocation();
   const provider = new GoogleAuthProvider();
   const [open, setOpen] = useState(false);
@@ -211,7 +213,6 @@ export const AuthProvider = ({ children }) => {
         setUser,
         setEvents,
         register,
-        allEvents,
         resetPassword,
         googleSignIn,
         facebookSignIn,

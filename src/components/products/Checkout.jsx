@@ -240,21 +240,27 @@ export default function Checkout() {
                             <li>No ongoing commitment</li>
                           </ul>
 
-                          <StripeCheckout
-                            label="Place Order and Pay"
-                            name="SYF Marketplace"
-                            description={`Your total is $1,375.77`}
-                            amount={priceForStripe}
-                            panelLabel="Pay Now"
-                            token={onToken}
-                            email={"sumanthale@gmail.com"}
-                            stripeKey={publishableKey}
-                          ></StripeCheckout>
-                          <div className="typography-text-sm mt-4 text-center">
-                            By placing my order, you agree to our{" "}
-                            <SfLink href="#">Terms and Conditions</SfLink> and
-                            our <SfLink href="#">Privacy Policy.</SfLink>
-                          </div>
+                          {checkedState !== "" && (
+                            <>
+                              {" "}
+                              <StripeCheckout
+                                label="Place Order and Pay"
+                                name="SYF Marketplace"
+                                description={`Your total is $1,375.77`}
+                                amount={priceForStripe}
+                                panelLabel="Pay Now"
+                                token={onToken}
+                                email={"sumanthale@gmail.com"}
+                                stripeKey={publishableKey}
+                              ></StripeCheckout>
+                              <div className="text-sm mt-4 text-center">
+                                By placing my order, you agree to our{" "}
+                                <SfLink href="#">Terms and Conditions</SfLink>{" "}
+                                and our{" "}
+                                <SfLink href="#">Privacy Policy.</SfLink>
+                              </div>
+                            </>
+                          )}
                         </div>
                       )}
                       {isActive(tab) && tab.label === "Pay Later" && (
