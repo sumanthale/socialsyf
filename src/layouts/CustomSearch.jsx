@@ -200,7 +200,7 @@ export default function CustomSearch() {
                       onClick={handleSelect(product.name)}
                       className="!py-4 sm:!py-2 flex justify-start"
                     >
-                      <p className="text-left">
+                      <p className="text-left text-black">
                         <span>{highlight}</span>
                         <span className="font-medium">{rest}</span>
                       </p>

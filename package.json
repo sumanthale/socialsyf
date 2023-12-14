@@ -19,6 +19,7 @@
     "react-hot-toast": "^2.4.1",
     "react-player": "^2.13.0",
     "react-router-dom": "^6.20.1",
+    "react-stripe-checkout": "^2.6.3",
     "react-transition-group": "^4.4.5",
     "react-use": "^17.4.2",
     "recharts": "^2.10.3",

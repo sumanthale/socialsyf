@@ -4,15 +4,14 @@ import {
   SfIconCheckCircle,
   SfIconClose,
   SfInput,
-  SfLink,
 } from "@storefront-ui/react";
 
 const orderDetails = {
-  items: 3,
-  originalPrice: 7824.97,
-  savings: -787.0,
+  items: 1,
+  originalPrice: 2274.19,
+  savings: -863.42,
   delivery: 0.0,
-  tax: 457.47,
+  tax: 65,
 };
 
 export default function OrderSummary() {
@@ -72,11 +71,11 @@ export default function OrderSummary() {
   const checkPromoCode = (event) => {
     event.preventDefault();
     if (
-      (promoCode === -100 && inputValue.toUpperCase() === "VSF2020") ||
+      (promoCode === -100 && inputValue.toUpperCase() === "SYF100") ||
       !inputValue
     )
       return;
-    if (inputValue.toUpperCase() === "VSF2020") {
+    if (inputValue.toUpperCase() === "SYF100") {
       setPromoCode(-100);
       setPositiveAlert(true);
     } else {
@@ -90,8 +89,34 @@ export default function OrderSummary() {
   };
 
   return (
-    <div>
-      <div className="md:shadow-lg md:rounded-md md:border md:border-neutral-100">
+    <div className="pr-2">
+      <div className="p-4 bg-white outline outline-gray-200 rounded my-4">
+        <div className="container mx-auto col-span-7">
+          <div className="grid grid-cols-12 items-center justify-between">
+            <img
+              src="https://www.synchrony.com/sites/syc/img/syf_mc_premier_card.png"
+              alt="card img"
+              className="h-16 col-span-3"
+            />
+            <div className="col-span-7">
+              <span className="font-semibold text-[14px]">
+                Get 2% back (<span className="text-red-500">$22</span>) + No
+                Annual Fee* with Synchrony Premier World Mastercard® credit
+                card.
+              </span>
+            </div>
+            <button
+              href="#"
+              rel="noreferrer noopener"
+              className="px-2 mt-4 lg:mt-0 py-1.5 w-fit rounded-md text-xs border block bg-syf font-bold text-black col-span-2"
+            >
+              Apply Now
+            </button>
+          </div>
+        </div>{" "}
+      </div>
+
+      <div className="md:shadow-lg md:rounded-md md:border md:border-neutral-100 bg-white">
         <div className="flex justify-between items-end bg-neutral-100 md:bg-transparent py-2 px-4 md:px-6 md:pt-6 md:pb-4">
           <p className="typography-headline-4 font-bold md:typography-headline-3">
             Order Summary
@@ -117,7 +142,7 @@ export default function OrderSummary() {
                 {formatPrice(orderDetails.originalPrice)}
               </p>
               <p className="typography-text-xs text-secondary-700">
-                {formatPrice(orderDetails.savings)}
+                {formatPrice(orderDetails.savings + promoCode)}
               </p>
               <p className="my-2">{formatPrice(orderDetails.delivery)}</p>
               <p>{formatPrice(orderDetails.tax)}</p>
@@ -129,7 +154,7 @@ export default function OrderSummary() {
               <SfButton
                 size="sm"
                 variant="tertiary"
-                className="ml-auto mr-2"
+                className="ml-auto mr-2 !text-black"
                 onClick={removePromoCode}
               >
                 Remove
@@ -153,24 +178,17 @@ export default function OrderSummary() {
             </form>
           )}
           <p className="px-3 py-1.5 bg-secondary-100 text-secondary-700 typography-text-sm rounded-md text-center mb-4">
-            You are saving ${Math.abs(orderDetails.savings).toFixed(2)} on your
+            You are saving $
+            {Math.abs(orderDetails.savings + promoCode).toFixed(2)} on your
             order today!
           </p>
           <div className="flex justify-between typography-headline-4 md:typography-headline-3 font-bold pb-4 mb-4 border-b border-neutral-200">
             <p>Total</p>
             <p>{formatPrice(totalPrice())}</p>
           </div>
-          <SfButton size="lg" className="w-full">
-            Place Order And Pay
-          </SfButton>
-          <div className="typography-text-sm mt-4 text-center">
-            By placing my order, you agree to our{" "}
-            <SfLink href="#">Terms and Conditions</SfLink> and our{" "}
-            <SfLink href="#">Privacy Policy.</SfLink>
-          </div>
         </div>
       </div>
-      <div className="absolute top-0 right-0 mx-2 mt-2 sm:mr-6">
+      <div className="absolute top-20 right-20 mx-2 mt-2 sm:mr-6">
         {positiveAlert && (
           <div
             role="alert"

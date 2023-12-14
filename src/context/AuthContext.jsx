@@ -28,6 +28,7 @@ export const AuthProvider = ({ children }) => {
   const [allEvents, setAllEvents] = useState([]);
   // const location = useLocation();
   const provider = new GoogleAuthProvider();
+  const [open, setOpen] = useState(false);
 
   const facebookProvider = new FacebookAuthProvider();
 
@@ -214,6 +215,8 @@ export const AuthProvider = ({ children }) => {
         resetPassword,
         googleSignIn,
         facebookSignIn,
+        open,
+        setOpen,
       }}
     >
       {!isLoading ? (

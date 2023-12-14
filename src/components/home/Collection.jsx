@@ -109,7 +109,7 @@ export default function Collection() {
               </div>
               <div className="relative w-full h-2.5 lg:h-3 2xl:h-4 bg-gray-100 rounded-full overflow-hidden">
                 <div
-                  className="absolute h-full bg-heading"
+                  className="absolute h-full bg-syf"
                   style={{ width: "45%" }}
                 ></div>
               </div>

@@ -120,9 +120,8 @@ const categoriesContent = [
 
 export default function BaseMegaMenu() {
   const { close, toggle, isOpen } = useDisclosure();
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, setOpen, open } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
 
   const unauthenticatedItems = [
     {

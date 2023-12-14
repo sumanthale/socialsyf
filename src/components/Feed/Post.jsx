@@ -1,10 +1,11 @@
-const Post = () => {
+/* eslint-disable react/prop-types */
+const Post = ({ post }) => {
   return (
     <div className="flex flex-col max-w-xl mx-auto p-6 space-y-6 overflow-hidden rounded-lg shadow-md mt-5">
       <div className="flex space-x-4">
         <img
           alt=""
-          src="https://source.unsplash.com/100x100/?portrait"
+          src={post.avatar}
           className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500"
         />
         <div className="flex flex-col space-y-1">
@@ -13,25 +14,21 @@ const Post = () => {
             href="#"
             className="text-sm font-semibold"
           >
-            Leroy Jenkins
+            {post.name}
           </a>
-          <span className="text-xs dark:text-gray-400">4 hours ago</span>
+          <span className="text-xs dark:text-gray-400">
+            {post.time} hours ago
+          </span>
         </div>
       </div>
       <div>
         <img
-          src="https://source.unsplash.com/random"
+          src={post.src}
           alt=""
-          className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500"
+          className=" w-full mb-4 h-60 sm:h-96 dark:bg-gray-500 object-contain"
         />
-        <h2 className="mb-1 text-xl font-semibold">
-          Nam cu platonem posidonium sanctus debitis te
-        </h2>
-        <p className="text-sm dark:text-gray-400">
-          Eu qualisque aliquando mel, id lorem detraxit nec, ad elit minimum
-          pri. Illum ipsum detracto ne cum. Mundi nemore te ius, vim ad illud
-          atqui apeirian...
-        </p>
+
+        <p className="text-sm dark:text-gray-400">{post.description}</p>
       </div>
       <div className="flex flex-wrap justify-between">
         <div className="space-x-2">

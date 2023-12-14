@@ -1,32 +1,13 @@
+/* eslint-disable react/prop-types */
 import {
   SfButton,
   SfIconFavorite,
   SfLink,
   SfScrollable,
 } from "@storefront-ui/react";
+import { Link } from "react-router-dom";
 
-// const post = {
-//   src: "https://assets.myntassets.com/f_webp,dpr_1.5,q_auto:eco,w_400,c_limit,fl_progressive/assets/images/2023/12/9/a4bda2b1-b281-4703-937d-2034fd85a06a1702121527824-croppedImage-1702121526974.jpg",
-//   name: "Cherry Jain",
-//   time: 3,
-//   photos: [
-//     "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/13338378/2023/12/7/9066c81d-c5fe-4f86-8c1d-449515ea2f361701940634134AjmalNeeaEauDeParfumFloralPerfume20MLPartyWearforWomen2Parfu1.jpg",
-//   ],
-// };
-const post = {
-  src: "https://assets.myntassets.com/f_webp,dpr_1.5,q_auto:eco,w_400,c_limit,fl_progressive/assets/images/2023/12/8/1b38b68e-4c3e-48f8-97c8-4972ea69e2741702023638528-croppedImage-1702023637937.jpg",
-  name: "Cherry Jain",
-  time: 3,
-  avatar:
-    "https://assets.myntassets.com/f_webp,dpr_1.5,q_auto:eco,w_32,c_limit,fl_progressive/assets/images/2022/5/6/7b0384ee-3952-4840-9f5a-20cab40a953e1651822398445-croppedImage-1651822397971.jpg",
-  photos: [
-    "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24541592/2023/9/14/f6205378-b47e-49e9-85e8-319371c45b911694686364710StyleCastRedShoulderStrapsMiniBodyconDress1.jpg",
-    "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24541592/2023/9/14/0775c850-6952-4237-b024-c5891966c1591694686364782StyleCastRedShoulderStrapsMiniBodyconDress4.jpg",
-    "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24541592/2023/9/14/a3997210-3cfb-42ee-af84-48b66ae84c1f1694686364745StyleCastRedShoulderStrapsMiniBodyconDress2.jpg",
-  ],
-};
-
-const InfluenceerPost = () => {
+const InfluenceerPost = ({ post }) => {
   return (
     <div className="flex flex-col max-w-2xl mx-auto p-6 space-y-6 overflow-hidden rounded-lg shadow-md mt-5">
       <div className="flex space-x-4">
@@ -37,13 +18,13 @@ const InfluenceerPost = () => {
         />
         <div className="flex flex-col space-y-1">
           <div className="flex items-center">
-            <a
+            <Link
               rel="noopener noreferrer"
-              href="#"
+              to="/profile"
               className="text-sm font-semibold flex items-center"
             >
               {post.name}
-            </a>
+            </Link>
             <span className="text-[8px] text-slate-300 mx-2">⬤</span>
             <span className="text-xs text-primary-700 p-1">Follow</span>
           </div>
@@ -59,11 +40,7 @@ const InfluenceerPost = () => {
           className="object-contain  w-full mb-4 h-60 sm:h-[400px] dark:bg-gray-500"
         />
 
-        <p className="text-sm dark:text-gray-400">
-          Eu qualisque aliquando mel, id lorem detraxit nec, ad elit minimum
-          pri. Illum ipsum detracto ne cum. Mundi nemore te ius, vim ad illud
-          atqui apeirian...
-        </p>
+        <p className="text-sm dark:text-gray-400">{post.description}</p>
       </div>
       <div className="flex flex-wrap justify-between">
         <div className="space-x-2">
@@ -121,7 +98,7 @@ const InfluenceerPost = () => {
       <h1 className="font-bold">Products in this photo</h1>
 
       <SfScrollable className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-        {post.photos.map((photo, idx) => (
+        {post.images.map((photo, idx) => (
           <div
             className="border border-neutral-200 rounded-md hover:shadow-lg max-w-[150px] relative"
             key={idx}
@@ -150,9 +127,11 @@ const InfluenceerPost = () => {
                 variant="secondary"
                 className="no-underline font-bold text-xs"
               >
-                Title the one
+                {post.name}
               </SfLink>
-              <span className="block font-semibold text-xs">${333}</span>
+              <span className="block font-semibold text-xs">
+                ${Math.floor(Math.random() * (150 - 100 + 1)) + 100}
+              </span>
             </div>
           </div>
         ))}

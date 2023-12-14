@@ -29,10 +29,10 @@ const Login = ({ setLoginOpen }) => {
           marginRight: "-50%",
           transform: "translate(-50%, -50%)",
         }}
-        className="z-[999]"
+        className="z-[999] "
       >
         <div
-          className="absolute cursor-pointer -right-5 -top-5 flex items-center justify-center w-12 h-12 rounded-full dark:bg-primary-400"
+          className="absolute cursor-pointer -right-5 -top-5 flex items-center justify-center w-12 h-12 rounded-full bg-primary-400"
           onClick={() => {
             setLoginOpen(false);
           }}
@@ -41,16 +41,16 @@ const Login = ({ setLoginOpen }) => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"
             fill="currentColor"
-            className="flex-shrink-0 w-5 h-5 rounded-full dark:text-gray-900"
+            className="flex-shrink-0 w-5 h-5 rounded-full text-gray-900"
           >
             <path d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z"></path>
           </svg>
         </div>
-        <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
+        <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 bg-gray-900 text-gray-100">
           <h2 className="mb-3 text-3xl font-semibold text-center">
             Login to your account
           </h2>
-          <p className="text-sm text-center dark:text-gray-400">
+          <p className="text-sm text-center text-gray-400">
             Dont have account?{" "}
             <a
               href="#"
@@ -62,10 +62,67 @@ const Login = ({ setLoginOpen }) => {
           </p>
           <div className="my-6 space-y-4">
             <button
+              aria-label="Login with GitHub"
+              onClick={handleGooleSignin}
+              role="button"
+              className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri border-gray-400 focus:ri"
+            >
+              <svg
+                viewBox="-5 0 20 20"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                fill="#ffffff"
+                stroke="#ffffff"
+                className="w-5 h-5 fill-current"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <title>facebook [#ffffff]</title>{" "}
+                  <desc>Created with Sketch.</desc> <defs> </defs>{" "}
+                  <g
+                    id="1"
+                    stroke="none"
+                    strokeWidth="1"
+                    fill="none"
+                    fillRule="evenodd"
+                  >
+                    {" "}
+                    <g
+                      id="Dribbble-Light-Preview"
+                      transform="translate(-385.000000, -7399.000000)"
+                      fill="#ffffff"
+                    >
+                      {" "}
+                      <g
+                        id="icons"
+                        transform="translate(56.000000, 160.000000)"
+                      >
+                        {" "}
+                        <path
+                          d="M335.821282,7259 L335.821282,7250 L338.553693,7250 L339,7246 L335.821282,7246 L335.821282,7244.052 C335.821282,7243.022 335.847593,7242 337.286884,7242 L338.744689,7242 L338.744689,7239.14 C338.744689,7239.097 337.492497,7239 336.225687,7239 C333.580004,7239 331.923407,7240.657 331.923407,7243.7 L331.923407,7246 L329,7246 L329,7250 L331.923407,7250 L331.923407,7259 L335.821282,7259 Z"
+                          id="facebook-[#ffffff]"
+                        >
+                          {" "}
+                        </path>{" "}
+                      </g>{" "}
+                    </g>{" "}
+                  </g>{" "}
+                </g>
+              </svg>
+              <p>Login with Facebook</p>
+            </button>
+            <button
               aria-label="Login with Google"
               onClick={handleGooleSignin}
               type="button"
-              className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri dark:border-gray-400 focus:ri"
+              className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri border-gray-400 focus:ri"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,24 +133,11 @@ const Login = ({ setLoginOpen }) => {
               </svg>
               <p>Login with Google</p>
             </button>
-            <button
-              aria-label="Login with GitHub"
-              role="button"
-              className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri dark:border-gray-400 focus:ri"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 32 32"
-                className="w-5 h-5 fill-current"
-              >
-                <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
-              </svg>
-              <p>Login with GitHub</p>
-            </button>
+
             <button
               aria-label="Login with Twitter"
               role="button"
-              className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri dark:border-gray-400 focus:ri"
+              className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri border-gray-400 focus:ri"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,9 +150,9 @@ const Login = ({ setLoginOpen }) => {
             </button>
           </div>
           <div className="flex items-center w-full my-4">
-            <hr className="w-full dark:text-gray-400" />
-            <p className="px-3 dark:text-gray-400">OR</p>
-            <hr className="w-full dark:text-gray-400" />
+            <hr className="w-full text-gray-400" />
+            <p className="px-3 text-gray-400">OR</p>
+            <hr className="w-full text-gray-400" />
           </div>
           <form action="" className="space-y-8">
             <div className="space-y-4">
@@ -121,7 +165,7 @@ const Login = ({ setLoginOpen }) => {
                   name="email"
                   id="email"
                   placeholder="leroy@jenkins.com"
-                  className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-primary-400"
+                  className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-primary-400"
                 />
               </div>
               <div className="space-y-2">
@@ -132,7 +176,7 @@ const Login = ({ setLoginOpen }) => {
                   <a
                     rel="noopener noreferrer"
                     href="#"
-                    className="text-xs hover:underline dark:text-gray-400"
+                    className="text-xs hover:underline text-gray-400"
                   >
                     Forgot password?
                   </a>
@@ -142,13 +186,13 @@ const Login = ({ setLoginOpen }) => {
                   name="password"
                   id="password"
                   placeholder="*****"
-                  className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-primary-400"
+                  className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-primary-400"
                 />
               </div>
             </div>
             <button
               type="button"
-              className="w-full px-8 py-3 font-semibold rounded-md dark:bg-primary-400 dark:text-gray-900"
+              className="w-full px-8 py-3 font-semibold rounded-md bg-primary-400 text-gray-900"
             >
               Sign in
             </button>

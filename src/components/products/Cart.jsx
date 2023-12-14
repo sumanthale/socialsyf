@@ -45,7 +45,7 @@ export default function Cart({ setOpen, open }) {
           >
             <header className="flex items-center justify-between px-10 py-6 border-b border-gray-200">
               <h1 className="text-slate-800 text-2xl font-bold ">
-                Shopping Cart (2) ✨
+                Shopping Cart (1) ✨
               </h1>
               <SfButton
                 square
@@ -64,18 +64,18 @@ export default function Cart({ setOpen, open }) {
                   <div className="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl p-3 w-full mx-auto border border-white bg-white">
                     <div className="w-full md:w-1/3 bg-white grid place-items-center">
                       <img
-                        src="https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                        src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/gallery/gallery_1.png"
                         alt="tailwind logo"
-                        className="rounded-xl"
+                        className="rounded-xl h-28"
                       />
                     </div>
                     <div className="w-full md:w-2/3 bg-white flex flex-col space-y-2">
                       <div className="flex w-full flex-col px-4">
-                        <span className="text-sm line-clamp-1">
-                          Nike Air Max Pro 8888 - Super Light
+                        <span className="text-sm line-clamp-1 text-black">
+                          Woods 34L Men&apos;s Hiking Backpack, Cetacean Green
                         </span>
                         <span className="float-right text-gray-400 text-sm">
-                          Unit Price : $12.30
+                          Unit Price : $1,410.77
                         </span>
                       </div>
                       <div className="flex justify-between item-center mt-1">

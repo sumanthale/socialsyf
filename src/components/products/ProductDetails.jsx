@@ -16,11 +16,13 @@ import {
   SfIconLocationOn,
 } from "@storefront-ui/react";
 import { useCounter } from "react-use";
-import { useEffect, useId, useState } from "react";
+import { useContext, useEffect, useId, useState } from "react";
 import { clamp } from "@storefront-ui/shared";
 import { getPlaceByLatLan } from "../../api/api";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function ProductDetails() {
+  const { setOpen } = useContext(AuthContext);
   const [place, setPlace] = useState("Hyderabad,Telangana,India");
   const inputId = useId();
   const min = 1;
@@ -79,16 +81,19 @@ export default function ProductDetails() {
         Sale
       </div>
       <h1 className="mb-1 font-bold typography-headline-4">
-        Osprey Stratos 34L Men&apos;s Hiking Backpack, Cetacean Blue
+        Woods 34L Men&apos;s Hiking Backpack, Cetacean Green
+      </h1>
+      <h1 className="mb-2 text-slate-900 text-[13px]">
+        Brand: <span className="text-black font-semibold">WOODS</span>
       </h1>
       <strong className="block font-bold text-3xl my-2">
-        <span className="text-red-700 ">-68%</span> $2,345.99
+        <span className="text-red-700 ">-38%</span> $1,410.77
       </strong>
       <h1 className="mb-1 text-slate-700 text-[13px]">
-        M.R.P.: <del>$3,799</del>
+        M.R.P.: <del>$2,274.19</del>
       </h1>
       <div className="inline-flex items-center mt-2 ">
-        <SfRating size="xs" value={3} max={5} />
+        <SfRating size="xs" value={4.5} max={5} halfIncrement />
         <SfCounter className="ml-1" size="xs">
           123
         </SfCounter>
@@ -121,7 +126,7 @@ export default function ProductDetails() {
       <div className="mt-6">
         <p className="mb-4 text-lg font-semibold dark:text-gray-400 flex items-center gap-2">
           <SfIconLocationOn />
-          Other Sellers Near You New (2) from $2,345.99
+          Other Sellers Near You New (2) from $1,420.77
         </p>
         <SfScrollable className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <div className="shadow  text-gray-500 border  h-36 shrink-0 p-2  border-gray-300 grid place-items-center">
@@ -140,8 +145,10 @@ export default function ProductDetails() {
                 </div>
                 <p>99% positive over last 12 months</p>
                 <div>
-                  <span className="font-bold mr-3 text-sm"> $2,345.99</span>
-                  <SfButton size="sm">Add To Cart</SfButton>
+                  <span className="font-bold mr-3 text-sm"> $1,420.99</span>
+                  <SfButton onClick={() => setOpen(true)} size="sm">
+                    Add To Cart
+                  </SfButton>
                 </div>
               </div>
             </div>
@@ -163,7 +170,9 @@ export default function ProductDetails() {
                 <p>94% positive over last 6 months</p>
                 <div>
                   <span className="font-bold mr-3 text-sm"> $2,345.99</span>
-                  <SfButton size="sm">Add To Cart</SfButton>
+                  <SfButton onClick={() => setOpen(true)} size="sm">
+                    Add To Cart
+                  </SfButton>
                 </div>
               </div>
             </div>
@@ -215,6 +224,7 @@ export default function ProductDetails() {
             size="lg"
             className="w-full xs:ml-4"
             slotPrefix={<SfIconShoppingCart size="sm" />}
+            onClick={() => setOpen(true)}
           >
             Add to cart
           </SfButton>

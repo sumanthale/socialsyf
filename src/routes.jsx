@@ -12,6 +12,7 @@ import Offers from "./components/offers/Offers";
 import Apply from "./components/offers/Apply";
 import Products from "./components/products/Products";
 import Profile from "./components/profile/profile";
+import Orders from "./components/products/orders";
 
 export default function ROUTES() {
   return (
@@ -29,6 +30,7 @@ export default function ROUTES() {
         <Route exact path="/offers" element={<Offers />} />
         <Route exact path="/apply" element={<Apply />} />
         <Route exact path="/profile" element={<Profile />} />
+        <Route exact path="/orders" element={<Orders />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />

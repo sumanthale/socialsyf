@@ -27,9 +27,14 @@ const buyerItems = [
     link: "/shop",
   },
   {
-    name: "Products",
+    name: "All Products",
     icon: <SfIconWarehouse />,
     link: "/products",
+  },
+  {
+    name: "My Orders",
+    icon: <SfIconWarehouse />,
+    link: "/orders",
   },
   {
     name: "Offers",
