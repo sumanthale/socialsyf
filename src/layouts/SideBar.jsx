@@ -47,9 +47,9 @@ const buyerItems = [
     link: "/apply",
   },
   {
-    name: "Help Center",
+    name: "Purchase Concern",
     icon: <SfIconContactSupport />,
-    link: "",
+    link: "/help",
   },
   {
     name: "Settings",
@@ -107,20 +107,48 @@ const sellerItems = [
   {
     name: "Logout",
     icon: <SfIconLogout />,
+    link: "/about",
+  },
+];
+const unauthenticatedItems = [
+  {
+    name: "Shop",
+    icon: <SfIconShoppingCart />,
+    link: "/shop",
+  },
+  {
+    name: "Find Products",
+    icon: <SfIconWarehouse />,
+    link: "/products",
+  },
+
+  {
+    name: "Offers",
+    icon: <SfIconPercent />,
+    link: "/offers",
+  },
+  {
+    name: "Apply",
+    icon: <SfIconPublishedWithChanges />,
+    link: "/apply",
+  },
+
+  {
+    name: "AboutUs",
+    icon: <SfIconInfo />,
     link: "",
   },
 ];
-
 const SideBar = () => {
   const { user } = useContext(AuthContext);
   const items =
     user !== null
-      ? user.type === "Seller"
+      ? user?.type === "Seller"
         ? sellerItems
         : buyerItems
-      : buyerItems;
+      : unauthenticatedItems;
   return (
-    <div className="flex items-center justify-center fixed w-[12%]">
+    <div className="flex items-center justify-center fixed">
       <div className="flex flex-col items-center w-full h-full overflow-hidden text-white  rounded">
         <div className="w-full px-2">
           <div className="flex flex-col items-center w-full mt-3 ">

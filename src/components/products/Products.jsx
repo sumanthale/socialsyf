@@ -110,7 +110,7 @@ const Products = () => {
                   <SfLink href="#" className="block">
                     <img
                       src={
-                        "https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/gallery/gallery_1.png"
+                        "https://media-www.canadiantire.ca/product/playing/camping/backpacks-luggage-accessories/0766176/woods-chilkoot-70l-038ab86d-5b8f-463a-9018-a426781d4697-jpgrendition.jpg?imdensity=1&imwidth=1244&impolicy=gZoom"
                       }
                       alt="Great product"
                       className="object-cover h-auto rounded-md aspect-square"

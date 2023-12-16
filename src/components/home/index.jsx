@@ -7,12 +7,16 @@ import Category from "./Category";
 // import Footer from "./Footer";
 import NewsletterBox from "./NewsLetter";
 import Recommended from "./Recomendations";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Home = () => {
+  const { user } = useContext(AuthContext);
   return (
     <>
       <Slider />
-      <Recommended />
+      {user !== null && <Recommended />}
+
       <ProductGallery />
       <Category />
       <Collection />

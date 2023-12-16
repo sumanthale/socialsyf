@@ -21,7 +21,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({
     type: "Buyer",
     name: "Sumanth",
-    fullName: "Sumanth Ale",
     url: "https://sumanthale.netlify.app/sumanthlogo.91ec0aabdc81f0b683a3.jpg",
   });
   const [isLoading, setIsLoading] = useState(true);

@@ -107,13 +107,30 @@ const social_posts = [
 ];
 
 const Posts = ({ isFeatured }) => {
+  const combined_posts = [];
+
+  // Combine social and normal posts alternately
+  for (let i = 0; i < Math.max(social_posts.length, normal_posts.length); i++) {
+    if (i < social_posts.length) {
+      combined_posts.push(social_posts[i]);
+    }
+    if (i < normal_posts.length) {
+      combined_posts.push(normal_posts[i]);
+    }
+  }
   return (
     <>
       {isFeatured
         ? social_posts.map((post, id) => (
             <InfluenceerPost key={id} post={post} />
           ))
-        : normal_posts.map((post, id) => <Post key={id} post={post} />)}
+        : combined_posts.map((post, id) =>
+            post?.images?.length > 0 ? (
+              <InfluenceerPost key={id} post={post} />
+            ) : (
+              <Post key={id} post={post} />
+            )
+          )}
     </>
   );
 };

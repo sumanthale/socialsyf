@@ -130,6 +130,10 @@ export default function BaseMegaMenu() {
       icon: <SfIconPerson />,
       label: "Log in",
       ariaLabel: "Log in",
+      type: "action",
+      action: () => {
+        setLoginOpen(true);
+      },
     },
   ];
 
@@ -146,8 +150,8 @@ export default function BaseMegaMenu() {
 
     {
       icon: <SfIconPerson />,
-      label: user.name,
-      ariaLabel: user.name,
+      label: user?.name,
+      ariaLabel: user?.name,
       type: "action",
       action: () => null,
     },
@@ -159,9 +163,8 @@ export default function BaseMegaMenu() {
       action: () => {
         setUser({
           type: "Seller",
-          name: "Seller Name",
-          fullName: "Seller Name",
-          url: "https://sumanthale.netlify.app/sumanthlogo.91ec0aabdc81f0b683a3.jpg",
+          name: "Prime Craft",
+          url: "https://images.unsplash.com/photo-1496449903678-68ddcb189a24?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         });
       },
     },
@@ -177,15 +180,15 @@ export default function BaseMegaMenu() {
 
     {
       icon: <SfIconAdd />,
-      label: "Add Product",
-      ariaLabel: "Add Product",
+      label: "Add Promo",
+      ariaLabel: "Add Promo",
       type: "action",
       action: () => null,
     },
     {
       icon: <SfIconPerson />,
-      label: user.name,
-      ariaLabel: user.name,
+      label: user?.name,
+      ariaLabel: user?.name,
       type: "action",
       action: () => null,
     },
@@ -197,17 +200,24 @@ export default function BaseMegaMenu() {
       action: () => {
         setUser({
           type: "Buyer",
-          name: user.name,
-          fullName: "Sumanth Ale",
+          name: "Sumanth",
           url: "https://sumanthale.netlify.app/sumanthlogo.91ec0aabdc81f0b683a3.jpg",
         });
       },
     },
   ];
 
+  useEffect(() => {
+    if (!user) {
+      setTimeout(() => {
+        setLoginOpen(true);
+      }, 3000);
+    }
+  }, []);
+
   const items =
     user !== null
-      ? user.type === "Seller"
+      ? user?.type === "Seller"
         ? sellerItems
         : buyerItems
       : unauthenticatedItems;
@@ -220,6 +230,7 @@ export default function BaseMegaMenu() {
   const handleChange = async () => {
     const query = textSearchRef.current.value;
     setSearchQuery(query);
+    setShowMaps(false);
   };
   const textSearchRef = useRef(null);
 
@@ -281,18 +292,20 @@ export default function BaseMegaMenu() {
               />
             </picture>
           </Link>
-          <h1
-            className="flex items-center cursor-pointer"
-            onClick={() => setShowMaps(!showMaps)}
-          >
-            <SfIconLocationOn className="mt-1" />
-            <div className="w-32 ml-1">
-              <h1 className="text-[11px] text-[#ccc]">Delivery to Ale</h1>
-              <h1 className="text-[11px] text-white font-bold line-clamp-1">
-                {searchQuery}
-              </h1>
-            </div>
-          </h1>
+          {user?.type === "Buyer" && (
+            <h1
+              className="flex items-center cursor-pointer"
+              onClick={() => setShowMaps(!showMaps)}
+            >
+              <SfIconLocationOn className="mt-1" />
+              <div className="w-32 ml-1">
+                <h1 className="text-[11px] text-[#ccc]">Delivery to Ale</h1>
+                <h1 className="text-[11px] text-white font-bold line-clamp-1">
+                  {searchQuery}
+                </h1>
+              </div>
+            </h1>
+          )}
 
           <SfButton
             className="hidden md:flex !text-white bg-transparent font-body hover:bg-primary-800 hover:text-white  active:bg-primary-900 active:text-white "
@@ -404,7 +417,7 @@ export default function BaseMegaMenu() {
             className="flex-1 flex flex-nowrap justify-end items-center md:ml-10 gap-x-1"
             aria-label="SF Navigation"
           >
-            {user.type === "Seller" && (
+            {user?.type === "Seller" && (
               <SfButton
                 type="button"
                 className="!text-white  bg-transparent hover:bg-primary-800 hover:text-white  active:bg-primary-900 active:text-white relative mr-2 "
@@ -569,7 +582,7 @@ export default function BaseMegaMenu() {
       {isLoginOpen && <Login setLoginOpen={setLoginOpen} />}
       {showMaps && (
         <>
-          <div className="fixed inset-0 z-[999] h-screen w-full bg-black opacity-70"></div>
+          <div className="fixed inset-0 z-[990] h-screen w-full bg-black opacity-70"></div>
 
           <div
             style={{
@@ -581,7 +594,7 @@ export default function BaseMegaMenu() {
               marginRight: "-50%",
               transform: "translate(-50%, -50%)",
             }}
-            className="z-[999]  w-1/2 h-1/2"
+            className="z-[990]  w-1/2 h-1/2"
           >
             <div
               className="absolute cursor-pointer -right-5 -top-5 flex items-center justify-center w-12 h-12 rounded-full bg-primary-400"

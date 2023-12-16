@@ -1,19 +1,41 @@
 /* eslint-disable react/prop-types */
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ setLoginOpen }) => {
   // const { facebookSignIn, login, error } = useContext(AuthContext);
-  const { facebookSignIn } = useContext(AuthContext);
+  const { facebookSignIn, setUser } = useContext(AuthContext);
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   login({ email, password });
   // };
-  const handleGooleSignin = () => {
-    console.log("google");
+
+  const navigate = useNavigate();
+  const handleFacebookLogin = () => {
     facebookSignIn();
+    setLoginOpen(false);
+    setTimeout(() => {
+      setUser({
+        type: "Buyer",
+        name: "Sumanth Ale",
+        url: "https://sumanthale.netlify.app/sumanthlogo.91ec0aabdc81f0b683a3.jpg",
+      });
+      navigate("/");
+    }, 3000);
+  };
+  const handleGoogleLogin = () => {
+    setLoginOpen(false);
+    setTimeout(() => {
+      setUser({
+        type: "Seller",
+        name: "Prime Craft",
+        url: "https://images.unsplash.com/photo-1496449903678-68ddcb189a24?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      });
+      navigate("/");
+    }, 1000);
   };
   return (
     <>
@@ -63,7 +85,7 @@ const Login = ({ setLoginOpen }) => {
           <div className="my-6 space-y-4">
             <button
               aria-label="Login with GitHub"
-              onClick={handleGooleSignin}
+              onClick={handleFacebookLogin}
               role="button"
               className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri border-gray-400 focus:ri"
             >
@@ -120,7 +142,7 @@ const Login = ({ setLoginOpen }) => {
             </button>
             <button
               aria-label="Login with Google"
-              onClick={handleGooleSignin}
+              onClick={handleGoogleLogin}
               type="button"
               className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri border-gray-400 focus:ri"
             >

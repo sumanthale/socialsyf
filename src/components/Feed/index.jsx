@@ -7,7 +7,10 @@ import {
   SfLink,
   SfScrollable,
 } from "@storefront-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import SellerRightBar from "./SellerRightBar";
 
 const post = {
   retailName: "Woods LTD",
@@ -16,7 +19,7 @@ const post = {
   src: "https://oliversapparel.com/cdn/shop/articles/ali-kazal-gcOMSDzWvR8-unsplash_900x.jpg?v=1653675309",
   images: [
     {
-      src: "https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/gallery/gallery_1.png",
+      src: "https://media-www.canadiantire.ca/product/playing/camping/backpacks-luggage-accessories/0766176/woods-chilkoot-70l-038ab86d-5b8f-463a-9018-a426781d4697-jpgrendition.jpg?imdensity=1&imwidth=1244&impolicy=gZoom",
       name: "Woods",
       price: "1,410.77",
       discount: "38",
@@ -39,11 +42,19 @@ const post = {
   time: 1,
 };
 const Feed = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!user) {
+      navigate("/shop");
+    }
+  }, []);
+
   return (
     <div>
       <div className="pl-5">
-        <div className="grid grid-cols-9">
-          <div className="col-span-5">
+        <div className="grid grid-cols-12 gap-x-6">
+          <div className="col-span-7">
             <CreatePost />
             <div className="flex flex-col max-w-2xl mx-auto p-6 space-y-6 overflow-hidden rounded-lg shadow-md mt-5">
               <div className="flex space-x-4">
@@ -67,7 +78,7 @@ const Feed = () => {
                     <span className="text-xs text-primary-700 p-1">Follow</span>
                   </div>
                   <span className="text-xs dark:text-gray-400">
-                    {post.time} hours ago
+                    {post.time} hour ago
                   </span>
                 </div>
               </div>
@@ -189,8 +200,8 @@ const Feed = () => {
             <Posts isFeatured={true} />
           </div>
 
-          <div className="ml-4 col-span-4">
-            <LeftSideBar />
+          <div className="col-span-5 w-full">
+            {user?.type === "Buyer" ? <LeftSideBar /> : <SellerRightBar />}
           </div>
         </div>
       </div>

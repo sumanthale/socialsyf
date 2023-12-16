@@ -215,12 +215,30 @@
     no-repeat 50%;
   position: relative;
 }
+
+.section-banner2 {
+  padding: 32px 20px 14px 120px;
+  border-radius: 12px;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.75) 10.38%,
+      rgba(0, 0, 0, 0) 92.41%
+    ),
+    url(https://img.freepik.com/free-vector/diverse-crowd-people-different-ages-races_74855-5235.jpg?w=1060&t=st=1702690539~exp=1702691139~hmac=25355213c97c036b4ad6456e19bc97493853719e1f307ec298b43cd447849024)
+      no-repeat 50%;
+  position: relative;
+  background-size: cover;
+}
 .section-banner .section-banner-icon {
   position: absolute;
   bottom: 0;
   left: 0;
 }
-
+.section-banner2 .section-banner-icon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 .statusBadge--3R5oH {
   grid-area: top-left-1/top-left-1/top-left-2/top-center;
   justify-self: left;
@@ -257,4 +275,35 @@
 }
 .badges_grayBadge__-5337 {
   background: #484848;
+}
+
+.thestats {
+  .stats-decoration {
+    background: url(https://odindesignthemes.com/vikinger/img/graph/stat/05-big.png)
+      repeat-x bottom #fff;
+  }
+  .stats-decoration.v2.big {
+    height: 213px;
+    padding: 46px 0 0;
+    text-align: center;
+  }
+  .stats-decoration {
+    border-radius: 12px;
+    box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);
+    position: relative;
+  }
+  .stats-decoration2 {
+    background: url(https://odindesignthemes.com/vikinger/img/graph/stat/06-big.png)
+      repeat-x bottom #fff;
+  }
+  .stats-decoration2.v2.big {
+    height: 213px;
+    padding: 46px 0 0;
+    text-align: center;
+  }
+  .stats-decoration2 {
+    border-radius: 12px;
+    box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);
+    position: relative;
+  }
 }

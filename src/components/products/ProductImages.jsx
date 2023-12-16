@@ -213,7 +213,9 @@ export default function ProductImages() {
               />
             ) : (
               <ReactPlayer
-                url={imageSrc}
+                url={
+                  "https://rr9---sn-gwpa-itqy.googlevideo.com/videoplayback?expire=1702711089&ei=0fp8ZeSuH8L7vdIPp-ypaA&ip=91.90.124.16&id=o-APUIwsFqMH9YtNq0NePA4uakXn1fzcZGOS3NArJYCZH8&itag=248&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&spc=UWF9f2bXgFnhz1LZGlQgQYZErlh-FjE&vprv=1&svpuc=1&mime=video%2Fwebm&gir=yes&clen=55785995&dur=339.973&lmt=1670093343266265&keepalive=yes&fexp=24007246&c=ANDROID&txp=5437434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRAIgGtALTBo_YthduQRSf9zVT0kFfEBFz_XufgSv3M7RcwcCIDznTzI-wkeY8_exjfJHTMOkeqoFVK1zFqcj6UUR9ezs&redirect_counter=1&rm=sn-q0cel7s&req_id=4a0fe65e9258a3ee&cms_redirect=yes&ipbypass=yes&mh=PJ&mip=49.47.235.0&mm=31&mn=sn-gwpa-itqy&ms=au&mt=1702689226&mv=m&mvi=9&pl=22&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AAO5W4owRQIgJxmEc0KMFyPo-bHIzYXqBV_KfTbUG9CLf3jTRaomCVoCIQCSWWn1Zl-IBV_W-3JADjJEMztRuYuDNYml_sJpWXVusw%3D%3D"
+                }
                 playing={true}
                 autoPlay
                 loop
@@ -228,3 +230,6 @@ export default function ProductImages() {
     </div>
   );
 }
+//https://www.youtube.com/watch?v=Ua5Yj5GKEhc
+
+//https://ssyoutube.com/en748JK/

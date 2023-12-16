@@ -10,7 +10,7 @@ const MainLayout = () => {
   return (
     <main>
       <div className="pb-[5rem]">
-        <div className="fixed w-full  bg-[#222831] text-white z-[999]">
+        <div className="fixed w-full  bg-[#222831] text-white z-[990]">
           <BaseMegaMenu />
         </div>
       </div>

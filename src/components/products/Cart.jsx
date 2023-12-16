@@ -30,7 +30,7 @@ export default function Cart({ setOpen, open }) {
             placement={placement}
             onClose={() => setOpen(false)}
             className={classNames(
-              "z-[999] bg-neutral-50 border border-gray-300 max-w-[370px] duration-500 transition ease-in-out min-w-[450px]",
+              "z-[991] bg-neutral-50 border border-gray-300 max-w-[370px] duration-500 transition ease-in-out min-w-[450px]",
               {
                 "translate-x-0": state === "entered" && placement === "left",
                 "-translate-x-full":
@@ -64,7 +64,7 @@ export default function Cart({ setOpen, open }) {
                   <div className="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl p-3 w-full mx-auto border border-white bg-white">
                     <div className="w-full md:w-1/3 bg-white grid place-items-center">
                       <img
-                        src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/gallery/gallery_1.png"
+                        src="https://media-www.canadiantire.ca/product/playing/camping/backpacks-luggage-accessories/0766176/woods-chilkoot-70l-038ab86d-5b8f-463a-9018-a426781d4697-jpgrendition.jpg?imdensity=1&imwidth=1244&impolicy=gZoom"
                         alt="tailwind logo"
                         className="rounded-xl h-28"
                       />

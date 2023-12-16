@@ -83,7 +83,7 @@ const Profile = () => {
     src: "https://oliversapparel.com/cdn/shop/articles/ali-kazal-gcOMSDzWvR8-unsplash_900x.jpg?v=1653675309",
     images: [
       {
-        src: "https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/gallery/gallery_1.png",
+        src: "https://media-www.canadiantire.ca/product/playing/camping/backpacks-luggage-accessories/0766176/woods-chilkoot-70l-038ab86d-5b8f-463a-9018-a426781d4697-jpgrendition.jpg?imdensity=1&imwidth=1244&impolicy=gZoom",
         name: "Woods",
         price: "1,410.77",
         discount: "38",
