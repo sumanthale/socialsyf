@@ -10,46 +10,46 @@ import {
 } from "recharts";
 const data = [
   {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: "January",
+    2022: 400,
+    2023: 240,
+    amt: 240,
   },
   {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: "Feburary",
+    2022: 300,
+    2023: 139,
+    amt: 221,
   },
   {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: "March",
+    2022: 200,
+    2023: 980,
+    amt: 229,
   },
   {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    name: "April",
+    2022: 278,
+    2023: 390,
+    amt: 200,
   },
   {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: "May",
+    2022: 189,
+    2023: 480,
+    amt: 218,
   },
   {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    name: "June",
+    2022: 239,
+    2023: 380,
+    amt: 250,
   },
   {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: "July",
+    2022: 349,
+    2023: 430,
+    amt: 210,
   },
 ];
 const Dashboard = () => {
@@ -186,7 +186,7 @@ const Dashboard = () => {
                   Performance
                 </h6>
                 <h2 className="text-blueGray-700 text-xl font-semibold">
-                  Total orders
+                  Total Orders By Year
                 </h2>
               </div>
             </div>
@@ -211,11 +211,11 @@ const Dashboard = () => {
                 <Legend />
                 <Line
                   type="monotone"
-                  dataKey="pv"
+                  dataKey="2023"
                   stroke="#8884d8"
                   activeDot={{ r: 8 }}
                 />
-                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                <Line type="monotone" dataKey="2022" stroke="#82ca9d" />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -300,7 +300,7 @@ const Dashboard = () => {
                     </td>
                     <td className="px-4 py-[18px]">
                       <p className="text-base text-body-color dark:text-dark-6">
-                        22
+                        52
                       </p>
                     </td>
                     <td className="px-4 py-[18px]">
@@ -314,12 +314,12 @@ const Dashboard = () => {
                       <div className="flex items-center">
                         <div className="flex items-center">
                           <img
-                            src="https://demo.tailgrids.com/templates/admino/build/src/assets/images/tables/table-12/image-01.jpg"
+                            src="https://i.dummyjson.com/data/products/5/thumbnail.jpg"
                             alt="product"
                             className="mr-4 h-[50px] w-[60px] rounded object-cover object-center"
                           />
                           <p className="text-base text-body-color dark:text-dark-6">
-                            Apple Watch Series 7
+                            Huawei P30
                           </p>
                         </div>
                       </div>
@@ -331,12 +331,12 @@ const Dashboard = () => {
                     </td>
                     <td className="px-4 py-[18px]">
                       <p className="text-base text-body-color dark:text-dark-6">
-                        $269
+                        $69
                       </p>
                     </td>
                     <td className="px-4 py-[18px]">
                       <p className="text-base text-body-color dark:text-dark-6">
-                        22
+                        42
                       </p>
                     </td>
                     <td className="px-4 py-[18px]">
@@ -350,12 +350,12 @@ const Dashboard = () => {
                       <div className="flex items-center">
                         <div className="flex items-center">
                           <img
-                            src="https://demo.tailgrids.com/templates/admino/build/src/assets/images/tables/table-12/image-01.jpg"
+                            src="https://i.dummyjson.com/data/products/6/thumbnail.png"
                             alt="product"
                             className="mr-4 h-[50px] w-[60px] rounded object-cover object-center"
                           />
                           <p className="text-base text-body-color dark:text-dark-6">
-                            Apple Watch Series 7
+                            MacBook Pro
                           </p>
                         </div>
                       </div>
@@ -367,17 +367,17 @@ const Dashboard = () => {
                     </td>
                     <td className="px-4 py-[18px]">
                       <p className="text-base text-body-color dark:text-dark-6">
-                        $269
+                        $1749
                       </p>
                     </td>
                     <td className="px-4 py-[18px]">
                       <p className="text-base text-body-color dark:text-dark-6">
-                        22
+                        33
                       </p>
                     </td>
                     <td className="px-4 py-[18px]">
                       <p className="text-base text-body-color dark:text-dark-6">
-                        $45
+                        $145
                       </p>
                     </td>
                   </tr>{" "}
@@ -386,12 +386,12 @@ const Dashboard = () => {
                       <div className="flex items-center">
                         <div className="flex items-center">
                           <img
-                            src="https://demo.tailgrids.com/templates/admino/build/src/assets/images/tables/table-12/image-01.jpg"
+                            src="https://i.dummyjson.com/data/products/9/thumbnail.jpg"
                             alt="product"
                             className="mr-4 h-[50px] w-[60px] rounded object-cover object-center"
                           />
                           <p className="text-base text-body-color dark:text-dark-6">
-                            Apple Watch Series 7
+                            Infinix INBOOK
                           </p>
                         </div>
                       </div>
@@ -403,17 +403,17 @@ const Dashboard = () => {
                     </td>
                     <td className="px-4 py-[18px]">
                       <p className="text-base text-body-color dark:text-dark-6">
-                        $269
+                        $1099
                       </p>
                     </td>
                     <td className="px-4 py-[18px]">
                       <p className="text-base text-body-color dark:text-dark-6">
-                        22
+                        29
                       </p>
                     </td>
                     <td className="px-4 py-[18px]">
                       <p className="text-base text-body-color dark:text-dark-6">
-                        $45
+                        $245
                       </p>
                     </td>
                   </tr>
@@ -562,7 +562,7 @@ const Dashboard = () => {
               <thead className="thead-light">
                 <tr>
                   <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                    Referral
+                    Site
                   </th>
                   <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                     Visitors
@@ -574,6 +574,27 @@ const Dashboard = () => {
                 <tr>
                   <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                     Facebook
+                  </th>
+                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    5,480
+                  </td>
+                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                    <div className="flex items-center">
+                      <span className="mr-2">80%</span>
+                      <div className="relative w-full">
+                        <div className="overflow-hidden h-2 text-xs flex rounded bg-emerald-200">
+                          <div
+                            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"
+                            style={{ width: "80%" }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                    Youtube
                   </th>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     1,480
@@ -594,27 +615,6 @@ const Dashboard = () => {
                 </tr>
                 <tr>
                   <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                    Facebook
-                  </th>
-                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    5,480
-                  </td>
-                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    <div className="flex items-center">
-                      <span className="mr-2">70%</span>
-                      <div className="relative w-full">
-                        <div className="overflow-hidden h-2 text-xs flex rounded bg-emerald-200">
-                          <div
-                            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"
-                            style={{ width: "70%" }}
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                     Google
                   </th>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
@@ -622,12 +622,12 @@ const Dashboard = () => {
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <div className="flex items-center">
-                      <span className="mr-2">80%</span>
+                      <span className="mr-2">70%</span>
                       <div className="relative w-full">
                         <div className="overflow-hidden h-2 text-xs flex rounded bg-purple-200">
                           <div
                             className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-500"
-                            style={{ width: "80%" }}
+                            style={{ width: "70%" }}
                           ></div>
                         </div>
                       </div>
@@ -645,9 +645,9 @@ const Dashboard = () => {
                     <div className="flex items-center">
                       <span className="mr-2">75%</span>
                       <div className="relative w-full">
-                        <div className="overflow-hidden h-2 text-xs flex rounded bg-lightBlue-200">
+                        <div className="overflow-hidden h-2 text-xs flex rounded bg-blue-200">
                           <div
-                            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-lightBlue-500"
+                            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"
                             style={{ width: "75%" }}
                           ></div>
                         </div>
@@ -668,7 +668,7 @@ const Dashboard = () => {
                       <div className="relative w-full">
                         <div className="overflow-hidden h-2 text-xs flex rounded bg-orange-200">
                           <div
-                            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"
+                            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-orange-500"
                             style={{ width: "30%" }}
                           ></div>
                         </div>
@@ -787,7 +787,7 @@ const Dashboard = () => {
                 </svg>
                 <div>
                   <h5 className="text-xl text-gray-600 text-center">
-                    Global Activities
+                    Order Statistics
                   </h5>
                   <div className="mt-2 flex justify-center gap-4">
                     <h3 className="text-3xl font-bold text-gray-700">
@@ -815,8 +815,8 @@ const Dashboard = () => {
                 <table className="w-full text-gray-600">
                   <tbody>
                     <tr>
-                      <td className="py-2">Tailored ui</td>
-                      <td className="text-gray-500">896</td>
+                      <td className="py-2">In Cart</td>
+                      <td className="text-gray-500">1276</td>
                       <td>
                         <svg
                           className="w-16 ml-auto"
@@ -878,8 +878,8 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="py-2">Customize</td>
-                      <td className="text-gray-500">1200</td>
+                      <td className="py-2">In Wishlist</td>
+                      <td className="text-gray-500">1896</td>
                       <td>
                         <svg
                           className="w-16 ml-auto"
@@ -941,8 +941,8 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="py-2">Other</td>
-                      <td className="text-gray-500">12</td>
+                      <td className="py-2">Ordered</td>
+                      <td className="text-gray-500">755</td>
                       <td>
                         <svg
                           className="w-16 ml-auto"
@@ -1009,7 +1009,7 @@ const Dashboard = () => {
             </div>
             <div>
               <div className="h-full py-6 px-6 rounded-xl border border-gray-200 bg-white">
-                <h5 className="text-xl text-gray-700">Downloads</h5>
+                <h5 className="text-xl text-gray-700">Orders</h5>
                 <div className="my-8">
                   <h1 className="text-5xl font-bold text-gray-800">64,5%</h1>
                   <span className="text-gray-500">

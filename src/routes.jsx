@@ -16,6 +16,7 @@ import Orders from "./components/products/orders";
 import Order from "./components/products/Order";
 import MyOrders from "./components/products/MyOrders";
 import Dispute from "./components/products/Dispute";
+import Team from "./layouts/Team";
 
 export default function ROUTES() {
   return (
@@ -39,6 +40,7 @@ export default function ROUTES() {
         <Route exact path="/myorder" element={<MyOrders />} />
         <Route exact path="/order/:id" element={<Order />} />
       </Route>
+      <Route exact path="/team" element={<Team />} />
 
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

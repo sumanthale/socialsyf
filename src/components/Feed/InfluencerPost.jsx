@@ -26,7 +26,9 @@ const InfluenceerPost = ({ post }) => {
               {post.name}
             </Link>
             <span className="text-[8px] text-slate-300 mx-2">⬤</span>
-            <span className="text-xs text-primary-700 p-1">Follow</span>
+            <span className="text-xs text-white bg-syf p-1 outline outline-syf rounded font-bold">
+              Follow
+            </span>
           </div>
           <span className="text-xs dark:text-gray-400">
             {post.time} hours ago

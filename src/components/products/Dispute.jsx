@@ -8,20 +8,17 @@ import {
   SfIconCheck,
   useTrapFocus,
   InitialFocusType,
+  SfTextarea,
 } from "@storefront-ui/react";
 
 const options = [
   {
-    label: "Startup",
-    value: "startup",
+    label: "Woods 34L Men's Hiking Backpack",
+    value: "Woods 34L Men's Hiking Backpack",
   },
   {
-    label: "Business",
-    value: "business",
-  },
-  {
-    label: "Enterprise",
-    value: "enterprise",
+    label: "Nike Sport V2",
+    value: "Nike Sport V2",
   },
 ];
 
@@ -59,11 +56,11 @@ export default function Dispute() {
   };
 
   return (
-    <div className="min-h-[87.7vh] p-3">
+    <div className="p-3 h-96">
       <label className="font-medium typography-label-sm" htmlFor={id}>
-        Product
+        Select Order You Want to Raise Dispute
       </label>
-      <div ref={refs.setReference} className="relative">
+      <div ref={refs.setReference} className="relative mb-2">
         <div
           ref={selectTriggerRef}
           id={id}
@@ -129,6 +126,25 @@ export default function Dispute() {
           ))}
         </ul>
       </div>
+      <label>
+        <span className="typography-text-sm font-medium">Description</span>
+        <SfTextarea
+          value=""
+          rows={5}
+          className="w-full !bg-disabled-100 block"
+        />
+      </label>
+      <p className="typography-hint-xs text-neutral-500 mt-0.5">
+        Explain us the Issue.
+      </p>
+
+      <button
+        onClick={() => {}}
+        type="button"
+        className="px-5 py-2 font-semibold tracki text-center rounded bg-primary-400 my-3 text-gray-900 "
+      >
+        Submit Request
+      </button>
     </div>
   );
 }

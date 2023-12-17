@@ -1,4 +1,6 @@
+import { SfButton, SfCheckbox } from "@storefront-ui/react";
 import dayjs from "dayjs";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const data = [
@@ -24,6 +26,7 @@ const data = [
 ];
 
 const MyOrders = () => {
+  const [help, setHelp] = useState(false);
   return (
     <div>
       <div className="bg-white p-8 rounded-md w-full min-h-[87.8vh]">
@@ -53,6 +56,9 @@ const MyOrders = () => {
                 id=""
                 placeholder="search..."
               />
+              <SfButton onClick={() => setHelp(!help)}>
+                Purchase Concern
+              </SfButton>
             </div>
           </div>
         </div>
@@ -62,6 +68,9 @@ const MyOrders = () => {
               <table className="min-w-full leading-normal">
                 <thead>
                   <tr>
+                    {help && (
+                      <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"></th>
+                    )}
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                       ID
                     </th>
@@ -88,6 +97,11 @@ const MyOrders = () => {
                 <tbody>
                   {data.map((order) => (
                     <tr key={order.id}>
+                      {help && (
+                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <SfCheckbox />
+                        </td>
+                      )}
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <Link
                           to={
@@ -157,6 +171,8 @@ const MyOrders = () => {
               </table>
             </div>
           </div>
+
+          {help && <SfButton>Raise Dispute</SfButton>}
         </div>
       </div>
     </div>

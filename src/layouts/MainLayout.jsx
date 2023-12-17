@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import BaseMegaMenu from "./NavBar";
 import SideBar from "./SideBar";
 import SmallSideBar from "./SmallSideBar";
+import Chat from "./Chat";
 
 const MainLayout = () => {
   let smallBar = true;
@@ -36,6 +37,7 @@ const MainLayout = () => {
           </>
         )}
       </div>
+      <Chat />
     </main>
   );
 };

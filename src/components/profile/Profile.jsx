@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import classNames from "classnames";
 import { FLASH_SALE } from "../data/cards";
 import {
@@ -8,6 +8,7 @@ import {
   SfScrollable,
 } from "@storefront-ui/react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 function getPreviousIndex(current, elements) {
   for (let index = current - 1; index >= 0; index -= 1) {
@@ -45,6 +46,7 @@ const Profile = () => {
   const isActive = (tab) => activeTab.label === tab.label;
   const tabId = (label) => `${label}-tab`;
   const panelId = (label) => `${label}-panel`;
+  const { user } = useContext(AuthContext);
 
   const handleKeyDown = (event) => {
     const elements = Array.from(
@@ -158,36 +160,62 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2 absolute right-0 top-44">
-          <div className="flex items-center space-x-4 mt-2">
-            <button className="flex items-center bg-primary-600 hover:bg-primary-700 text-black font-bold px-4 py-2 rounded text-sm space-x-2 transition duration-100">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
-              </svg>
-              <span>Follow</span>
-            </button>
-            <button className="flex items-center bg-primary-600 hover:bg-primary-700 text-black font-bold px-4 py-2 rounded text-sm space-x-2 transition duration-100">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-              <span>Message</span>
-            </button>
+        {user?.type === "Buyer" ? (
+          <div className="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2 absolute right-0 top-44">
+            <div className="flex items-center space-x-4 mt-2">
+              <button className="flex items-center bg-primary-600 hover:bg-primary-700 text-black font-bold px-4 py-2 rounded text-sm space-x-2 transition duration-100">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
+                </svg>
+                <span>Follow</span>
+              </button>
+              <button className="flex items-center bg-primary-600 hover:bg-primary-700 text-black font-bold px-4 py-2 rounded text-sm space-x-2 transition duration-100">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+                <span>Message</span>
+              </button>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2 absolute right-0 top-44">
+            <div className="flex items-center space-x-4 mt-2">
+              <button className="flex items-center bg-primary-600 hover:bg-primary-700 text-black font-bold px-4 py-2 rounded text-sm space-x-2 transition duration-100">
+                <i className="fa fa-group text-sm"></i>
+                <span>Followers</span>
+              </button>
+              <button className="flex items-center bg-primary-600 hover:bg-primary-700 text-black font-bold px-4 py-2 rounded text-sm space-x-2 transition duration-100">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+                <span>Messages</span>
+              </button>
+            </div>
+          </div>
+        )}
         <div className="max-w-screen-md mx-auto absolute bottom-5 right-10">
           <div
             ref={tablistRef}
@@ -254,9 +282,11 @@ const Profile = () => {
                           <span className="text-[8px] text-slate-300 mx-2">
                             ⬤
                           </span>
-                          <span className="text-xs text-primary-700 p-1">
-                            Follow
-                          </span>
+                          {user?.type === "Buyer" && (
+                            <span className="text-xs text-primary-700 p-1">
+                              Follow
+                            </span>
+                          )}
                         </div>
                         <span className="text-xs dark:text-gray-400">
                           {post.time} hours ago

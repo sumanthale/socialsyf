@@ -36,34 +36,58 @@ const CreatePost = () => {
           </div>
         </div>
         <hr className="mt-3 mb-3" />
-        <div className="grid grid-cols-4 gap-1">
-          <FeatureButton
-            text="Live video"
-            imageBgPosition="0px 0px"
-            image="	https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/v1iF2605Cb5.png"
-          />
-          <FeatureButton
-            text="Photo/Video"
-            imageBgPosition="0px -225px"
-            image={
-              "https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/a6OjkIIE-R0.png"
-            }
-          />
-          <FeatureButton
-            text="Feeling/Activity"
-            imageBgPosition="0px -25px"
-            image={
-              "	https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/yMDS19UDsWe.png"
-            }
-          />
-          <FeatureButton
-            text="Interest"
-            imageBgPosition="0px -25px"
-            image={
-              "https://img.icons8.com/?size=256&id=5GRnl7omKlp3&format=png"
-            }
-          />
-        </div>
+        {user?.type === "Buyer" ? (
+          <div className="grid grid-cols-4 gap-1">
+            <FeatureButton
+              text="Live video"
+              imageBgPosition="0px 0px"
+              image="	https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/v1iF2605Cb5.png"
+            />
+            <FeatureButton
+              text="Photo/Video"
+              imageBgPosition="0px -225px"
+              image={
+                "https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/a6OjkIIE-R0.png"
+              }
+            />
+            <FeatureButton
+              text="Feeling/Activity"
+              imageBgPosition="0px -25px"
+              image={
+                "	https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/yMDS19UDsWe.png"
+              }
+            />
+            <FeatureButton
+              text="Interest"
+              imageBgPosition="0px -25px"
+              image={
+                "https://img.icons8.com/?size=256&id=5GRnl7omKlp3&format=png"
+              }
+            />
+          </div>
+        ) : (
+          <div className="grid grid-cols-3 gap-1">
+            <FeatureButton
+              text="Live video"
+              imageBgPosition="0px 0px"
+              image="	https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/v1iF2605Cb5.png"
+            />
+            <FeatureButton
+              text="Photo/Video"
+              imageBgPosition="0px -225px"
+              image={
+                "https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/a6OjkIIE-R0.png"
+              }
+            />
+            <FeatureButton
+              text="Feeling/Activity"
+              imageBgPosition="0px -25px"
+              image={
+                "	https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/yMDS19UDsWe.png"
+              }
+            />
+          </div>
+        )}
       </div>
       {isOpen && (
         <>

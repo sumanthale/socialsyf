@@ -45,6 +45,7 @@ export default function Checkout() {
   const [payment, setPayment] = useState(false);
   const priceForStripe = 1375.77 * 100;
 
+  navigator.clipboard.writeText("4242 4242 4242 4242");
   const handleKeyDown = (event) => {
     const elements = Array.from(
       tablistRef.current?.querySelectorAll <
@@ -81,6 +82,7 @@ export default function Checkout() {
   const onToken = () => {
     setPayment(true);
   };
+
   return (
     <>
       {payment === false ? (
@@ -243,6 +245,7 @@ export default function Checkout() {
                           {checkedState !== "" && (
                             <>
                               {" "}
+                              <form id="payment-form"></form>
                               <StripeCheckout
                                 label="Place Order and Pay"
                                 name="SYF Marketplace"
@@ -252,6 +255,7 @@ export default function Checkout() {
                                 token={onToken}
                                 email={"sumanthale@gmail.com"}
                                 stripeKey={publishableKey}
+                                allowRememberMe
                               ></StripeCheckout>
                               <div className="text-sm mt-4 text-center">
                                 By placing my order, you agree to our{" "}
@@ -341,7 +345,7 @@ export default function Checkout() {
                           <div>
                             <img
                               className="mr-4 w-28 h-28 text-base ease-soft-in-out inline-flex items-center justify-center rounded-xl text-white transition-all duration-200"
-                              src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1400&amp;q=80"
+                              src="https://media-www.canadiantire.ca/product/playing/camping/backpacks-luggage-accessories/0766176/woods-chilkoot-70l-038ab86d-5b8f-463a-9018-a426781d4697-jpgrendition.jpg?imdensity=1&imwidth=1244&impolicy=gZoom"
                               alt="product image"
                             />
                           </div>
@@ -471,7 +475,7 @@ export default function Checkout() {
                             Product Price:
                           </span>
                           <span className="ml-2 font-semibold text-black dark:text-white">
-                            $90
+                            $1,315.77
                           </span>
                         </div>
                         <div className="flex justify-between">
@@ -487,13 +491,13 @@ export default function Checkout() {
                             Taxes:
                           </span>
                           <span className="ml-2 font-semibold text-black dark:text-white">
-                            $1.95
+                            $65.00
                           </span>
                         </div>
                         <div className="flex justify-between mt-6">
                           <span className="mb-2 text-lg">Total:</span>
                           <span className="ml-2 font-semibold text-lg text-black dark:text-white">
-                            $105.95
+                            $1,375.77
                           </span>
                         </div>
                       </div>

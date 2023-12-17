@@ -21,6 +21,17 @@ const buyerItems = [
     icon: <SfIconHome />,
     link: "/",
   },
+
+  {
+    name: "Offers",
+    icon: <SfIconPercent />,
+    link: "/offers",
+  },
+  {
+    name: "Apply",
+    icon: <SfIconPublishedWithChanges />,
+    link: "/apply",
+  },
   {
     name: "Shop",
     icon: <SfIconShoppingCart />,
@@ -36,20 +47,11 @@ const buyerItems = [
     icon: <SfIconWarehouse />,
     link: "/myorder",
   },
+
   {
-    name: "Offers",
-    icon: <SfIconPercent />,
-    link: "/offers",
-  },
-  {
-    name: "Apply",
-    icon: <SfIconPublishedWithChanges />,
-    link: "/apply",
-  },
-  {
-    name: "Purchase Concern",
+    name: "help",
     icon: <SfIconContactSupport />,
-    link: "/help",
+    link: "/",
   },
   {
     name: "Settings",
@@ -64,7 +66,7 @@ const buyerItems = [
   {
     name: "Logout",
     icon: <SfIconLogout />,
-    link: "",
+    link: "/team",
   },
 ];
 

@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import Dispute from "../components/products/Dispute";
 
 const Chat = () => {
   const { user } = useContext(AuthContext);
@@ -14,7 +15,13 @@ const Chat = () => {
           <div className="formbold-form-wrapper mx-auto w-[400px] rounded-lg border border-[#e0e0e0] bg-white">
             <div className="flex items-center justify-between rounded-t-lg bg-syf py-4 px-9">
               <h3 className="text-xl font-bold text-white">Customer Contact</h3>
-              <button onClick="chatboxToogleHandler()" className="text-white">
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  setStartChat(false);
+                }}
+                className="text-white"
+              >
                 <svg
                   width="17"
                   height="17"
@@ -35,58 +42,66 @@ const Chat = () => {
               </button>
             </div>
 
-            <section className=" text-gray-100">
-              <div className="container mx-auto">
-                <div className="flex flex-col gap-2 p-3">
-                  <div className="flex w-full">
-                    <div className="flex flex-grow flex-col p-3 space-y-3 rounded shadow sm:p-8 bg-gray-900">
-                      <div className="space-y-2">
-                        <h4 className="text-2xl font-bold">Chat right now</h4>
+            {startChat ? (
+              <>
+                <Dispute />
+              </>
+            ) : (
+              <section className="text-gray-100">
+                <div className="container mx-auto">
+                  <div className="flex flex-col gap-2 p-3">
+                    <div className="flex w-full">
+                      <div className="flex flex-grow flex-col p-3 space-y-3 rounded shadow sm:p-8 bg-gray-900">
+                        <div className="space-y-2">
+                          <h4 className="text-2xl font-bold">Chat right now</h4>
+                        </div>
+                        <p className="text-gray-400">
+                          Our messaging assistant can quickly solve many issues
+                          or direct you to the right person or place.
+                        </p>
+                        <button
+                          onClick={() => {
+                            setStartChat(true);
+                          }}
+                          type="button"
+                          className="inline-block px-5 py-2 font-semibold tracki text-center rounded bg-primary-400 text-gray-900"
+                        >
+                          Get Started
+                        </button>
                       </div>
-                      <p className="text-gray-400">
-                        Our messaging assistant can quickly solve many issues or
-                        direct you to the right person or place.
-                      </p>
-                      <button
-                        onClick={() => {
-                          setStartChat(true);
-                        }}
-                        type="button"
-                        className="inline-block px-5 py-2 font-semibold tracki text-center rounded bg-primary-400 text-gray-900"
-                      >
-                        Get Started
-                      </button>
                     </div>
-                  </div>
-                  <div className="flex w-full">
-                    <div className="flex flex-grow flex-col p-3 space-y-3 rounded shadow sm:p-8 bg-gray-900">
-                      <div className="space-y-2">
-                        <h4 className="text-2xl font-bold">Have us call you</h4>
-                      </div>
-                      <p className="">
-                        We&apos;ll first get a few details about your issue and
-                        then someone will call you right away.
-                      </p>
+                    <div className="flex w-full">
+                      <div className="flex flex-grow flex-col p-3 space-y-3 rounded shadow sm:p-8 bg-gray-900">
+                        <div className="space-y-2">
+                          <h4 className="text-2xl font-bold">
+                            Have us call you
+                          </h4>
+                        </div>
+                        <p className="">
+                          We&apos;ll first get a few details about your issue
+                          and then someone will call you right away.
+                        </p>
 
-                      <button
-                        onClick={() => {
-                          setStartChat(true);
-                        }}
-                        type="button"
-                        className="inline-block  px-5 py-2 font-bold tracki text-center rounded bg-gray-800 text-primary-400"
-                      >
-                        Get Started
-                      </button>
+                        <button
+                          onClick={() => {
+                            setStartChat(true);
+                          }}
+                          type="button"
+                          className="inline-block  px-5 py-2 font-bold tracki text-center rounded bg-gray-800 text-primary-400"
+                        >
+                          Get Started
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            )}
           </div>
         )}
         <div className="mx-auto mt-4 flex max-w-[550px] items-center justify-end space-x-5">
           <button
-            className="flex h-[70px] w-[70px] items-center justify-center rounded-full bg-syf text-white"
+            className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-syf text-white"
             onClick={() => {
               setIsOpen(true);
             }}
@@ -98,6 +113,7 @@ const Chat = () => {
                 viewBox="0 0 17 17"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="h-28 w-28"
               >
                 <path
                   fillRule="evenodd"

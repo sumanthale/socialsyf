@@ -95,9 +95,6 @@ const Orders = () => {
               <button className="bg-primary-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">
                 New Report
               </button>
-              <button className="bg-primary-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">
-                Create Order
-              </button>
             </div>
           </div>
         </div>
