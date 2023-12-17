@@ -148,6 +148,30 @@ export default function OrderSummary() {
               <p>{formatPrice(orderDetails.tax)}</p>
             </div>
           </div>
+          <div className="bg-[#eee]  flex flex-col p-3 gap-y-1.5  rounded">
+            <div className="flex w-full">
+              <img
+                src="https://www.synchrony.com/syc/img/2023_synchrony_basic_logo.svg"
+                alt=""
+                className="w-5 h-6 object-left object-cover "
+              />
+              <h1 className="ml-1 font-semibold"> Contribution towards CSR</h1>
+              <span className="ml-auto font-bold">$2</span>
+            </div>
+            <div className="flex -mt-1">
+              <h1 className="ml-6 text-xs ">
+                {" "}
+                ($2 per product has been added)
+              </h1>
+              <span className="ml-auto text-[10px] text-red-600 font-bold cursor-pointer">
+                Remove
+              </span>
+            </div>{" "}
+            <h1 className="ml-6 text-[10px] underline border-dotted">
+              {" "}
+              VIEW T&C
+            </h1>
+          </div>
           {promoCode ? (
             <div className="flex items-center mb-5 py-5 border-y border-neutral-200">
               <p>PromoCode</p>
@@ -184,7 +208,7 @@ export default function OrderSummary() {
           </p>
           <div className="flex justify-between typography-headline-4 md:typography-headline-3 font-bold pb-4 mb-4 border-b border-neutral-200">
             <p>Total</p>
-            <p>{formatPrice(totalPrice())}</p>
+            <p>{formatPrice(totalPrice() + 2)}</p>
           </div>
         </div>
       </div>

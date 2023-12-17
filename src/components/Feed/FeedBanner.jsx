@@ -22,6 +22,17 @@ const FeedBanner = () => {
       rating: 4.32,
     },
     {
+      image: "https://m.media-amazon.com/images/I/71PgoTeSp2L._AC_SL1500_.jpg",
+      name: "Supraja",
+      product: "Royal Canin Dry Dog Food",
+      price: 37.05,
+      sale: false,
+      people: "400+",
+      discount: 10,
+      reviewCount: 45,
+      rating: 4.21,
+    },
+    {
       image:
         "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       name: "Ember ",
@@ -105,7 +116,7 @@ const FeedBanner = () => {
                     <a
                       href="#"
                       rel="noopener noreferrer"
-                      className="items-center gap-2 hidden md:flex"
+                      className="items-center gap-2 hidden md:flex ml-4"
                     >
                       <button
                         type="button"
@@ -133,7 +144,7 @@ const FeedBanner = () => {
                     <img
                       src={img.image}
                       alt="tailwind logo"
-                      className="rounded-xl"
+                      className="rounded-xl max-h-28"
                     />
                   </div>
                   <div className="w-full md:w-2/3 bg-white flex flex-col space-y-2 justify-between">

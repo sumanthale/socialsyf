@@ -1333,6 +1333,20 @@ export const FLASH_SALE = [
 export const RECOMENDED_SALE = [
   {
     id: 2,
+    title: "Royal Canin Dry Dog Food",
+    description:
+      "At Royal Canin, we partner with pet experts to develop formulas perfect for each particular breed.",
+    price: 33,
+    discountPercentage: 10.94,
+    rating: 4.54,
+    stock: 35,
+    brand: "Royal Canin",
+    category: "Pet",
+    thumbnail:
+      "https://m.media-amazon.com/images/I/71PgoTeSp2L._AC_SL1500_.jpg",
+  },
+  {
+    id: 2,
     title: "iPhone X",
     description:
       "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
@@ -1350,7 +1364,25 @@ export const RECOMENDED_SALE = [
       "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
     ],
   },
-
+  {
+    id: 17,
+    title: "Tree Oil 30ml",
+    description:
+      "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+    price: 12,
+    discountPercentage: 4.09,
+    rating: 4.52,
+    stock: 78,
+    brand: "Hemani Tea",
+    category: "skincare",
+    thumbnail: "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
+    images: [
+      "https://i.dummyjson.com/data/products/17/1.jpg",
+      "https://i.dummyjson.com/data/products/17/2.jpg",
+      "https://i.dummyjson.com/data/products/17/3.jpg",
+      "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
+    ],
+  },
   {
     id: 4,
     title: "OPPOF19",

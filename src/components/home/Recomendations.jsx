@@ -33,7 +33,7 @@ export default function Recommended() {
                   }
                   alt={"backpack"}
                   aria-hidden="true"
-                  className="c3 w-full object-cover  max-h-[200px] mx-auto"
+                  className="c3 w-full object-cover  max-h-[200px]"
                 />
               </span>
               <img
@@ -43,7 +43,7 @@ export default function Recommended() {
                 alt={"backpack"}
                 decoding="async"
                 data-nimg="intrinsic"
-                className="c4  w-full  bg-gray-200 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105 mx-auto"
+                className="c4  w-full  bg-gray-200 object-cover rounded-s-md rounded-md transition duration-150 ease-linear transform group-hover:scale-105"
               />
             </span>
             <div className="absolute top-3.5 md:top-5 3xl:top-7 ltr:left-3.5 rtl:right-3.5 ltr:md:left-5 rtl:md:right-5 ltr:3xl:left-7 rtl:3xl:right-7 flex flex-col gap-y-1 items-start"></div>
@@ -81,14 +81,14 @@ export default function Recommended() {
               title="Adidas Shoes Black"
               key={id}
             >
-              <div className="flex mb-3 md:mb-3.5 pb-0">
+              <div className="flex mb-3 md:mb-3.5 pb-0  w-full justify-center">
                 <span className="c1">
                   <span className="c2">
                     <img
                       src={thumbnail}
                       alt={title}
                       aria-hidden="true"
-                      className="c3"
+                      className="c3 max-h-[200px]"
                     />
                   </span>
                   <img
